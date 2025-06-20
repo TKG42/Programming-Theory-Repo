@@ -1,5 +1,4 @@
 using UnityEngine;
-using TMPro;
 using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
@@ -7,8 +6,10 @@ public class UIManager : MonoBehaviour
     public static UIManager Instance;
 
     [Header("UI References")]
-    public TMP_Text scoreText;
-    public TMP_Text multiplierText;
+    public TMPro.TMP_Text scoreText;
+    public Image multiplier2xImage;
+    public Image multiplier3xImage;
+    public Image multiplier5xImage;
     public Image shieldIcon;
     public Image speedIcon;
 
@@ -20,21 +21,29 @@ public class UIManager : MonoBehaviour
 
     public void UpdateScoreText(int score)
     {
-        scoreText.text = $"Score: {score}";
+        if (scoreText != null)
+            scoreText.text = $"Score: {score}";
     }
 
-    public void UpdateMultiplierText(int multiplier)
+    public void UpdateMultiplierVisuals(bool has2x, bool has3x)
     {
-        multiplierText.text = multiplier > 1 ? $"x{multiplier}" : "";
+        // Show only one multiplier icon based on combo status
+        bool show5x = has2x && has3x;
+        bool show2x = has2x && !has3x;
+        bool show3x = has3x && !has2x;
+
+        multiplier5xImage?.gameObject.SetActive(show5x);
+        multiplier2xImage?.gameObject.SetActive(show2x);
+        multiplier3xImage?.gameObject.SetActive(show3x);
     }
 
     public void ShowShieldIcon(bool show)
     {
-        shieldIcon.gameObject.SetActive(show);
+        shieldIcon?.gameObject.SetActive(show);
     }
 
     public void ShowSpeedIcon(bool show)
     {
-        speedIcon.gameObject.SetActive(show);
+        speedIcon?.gameObject.SetActive(show);
     }
 }

@@ -46,7 +46,15 @@ public class ScoreManager : MonoBehaviour
     private void UpdateUI()
     {
         UIManager.Instance.UpdateScoreText(baseScore);
-        UIManager.Instance.UpdateMultiplierText(1 + bonusMultiplier);
+
+        // Determine multiplier breakdown
+        bool has2x = bonusMultiplier >= 2;
+        bool has3x = bonusMultiplier >= 3;
+
+        // 2 + 3 = 5 only if both are active independently
+        bool show5x = (bonusMultiplier == 5); // optional override if you want exact logic
+
+        UIManager.Instance.UpdateMultiplierVisuals(has2x, has3x);
     }
 
     public int GetScore() => baseScore;
