@@ -4842,6 +4842,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2327ed4809c34cf4c97a5316db3d4796, type: 3}
+--- !u!114 &663990201 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 703350722455881957, guid: 80779c3178cd3394fb0609206bf2821a, type: 3}
+  m_PrefabInstance: {fileID: 827203685}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6d6a032dfd9ae545afa787cf94a2103, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &669336663
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10511,7 +10522,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d7963c8c393f204a810b537d02785f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentSnake: {fileID: 0}
+  currentSnake: {fileID: 663990201}
   gameOverUI: {fileID: 735216374}
   pauseUI: {fileID: 770392131}
 --- !u!1001 &1526624296
@@ -11327,6 +11338,10 @@ PrefabInstance:
     - target: {fileID: 2760438410841005741, guid: fc9c80b98ff578b409dc8790b5ad6f7f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5047920524530846231, guid: fc9c80b98ff578b409dc8790b5ad6f7f, type: 3}
+      propertyPath: m_IncludeLayers.m_Bits
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

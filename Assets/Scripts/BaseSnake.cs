@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System.Collections;
 
 public abstract class BaseSnake : MonoBehaviour
 {
@@ -103,7 +104,45 @@ public abstract class BaseSnake : MonoBehaviour
     public virtual void Die()
     {
         Debug.Log("Snake has died!");
-        GameManager.Instance.GameOver();
+        ExplodeSnake();
+        StartCoroutine(HandleDeathDelay());
+    }
+
+    private void ExplodeSnake()
+    {
+        foreach (Transform segment in bodySegments)
+        {
+            Rigidbody rb = segment.GetComponent<Rigidbody>();
+            if (rb == null) rb = segment.gameObject.AddComponent<Rigidbody>();
+
+            rb.isKinematic = false;
+            rb.useGravity = true;
+            rb.collisionDetectionMode = CollisionDetectionMode.Continuous;            
+
+            Vector3 randomDir = Random.insideUnitSphere.normalized;
+            rb.AddForce(randomDir * Random.Range(100f, 200f));
+        }
+
+        Rigidbody headRb = GetComponent<Rigidbody>();
+        if (headRb == null) headRb = gameObject.AddComponent<Rigidbody>();
+
+        headRb.isKinematic = false;
+        headRb.useGravity = true;
+        headRb.AddForce(Vector3.up * 150f);
+        Physics.SyncTransforms();
+    }
+
+    private IEnumerator HandleDeathDelay()
+    {
+        yield return new WaitForSeconds(4f);
+
+        // Hide gameplay UI
+        if (UIManager.Instance != null)
+            UIManager.Instance.gameObject.SetActive(false);
+
+        // Trigger proper game over logic
+        if (GameManager.Instance != null)
+            GameManager.Instance.GameOver();
     }
 
     public int GetCurrentScore() => points;
