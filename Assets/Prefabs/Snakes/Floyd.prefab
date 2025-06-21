@@ -420,6 +420,8 @@ MonoBehaviour:
   - {fileID: 1327212596812091134}
   - {fileID: 8366186095246611115}
   segmentRotationEuler: {x: 0, y: 0, z: 0}
+  lightGreenSegmentPrefab: {fileID: 4890391537281798184, guid: ca6b85f7de56a6344b33c9f368bac924, type: 3}
+  darkGreenSegmentPrefab: {fileID: 1473996387522903481, guid: c08f06a89e5b1904d990c9a0bbbdc853, type: 3}
 --- !u!54 &2754098701825814661
 Rigidbody:
   m_ObjectHideFlags: 0
