@@ -112,23 +112,65 @@ public abstract class BaseSnake : MonoBehaviour
     {
         foreach (Transform segment in bodySegments)
         {
-            Rigidbody rb = segment.GetComponent<Rigidbody>();
-            if (rb == null) rb = segment.gameObject.AddComponent<Rigidbody>();
+            // Try child object called "BodyMesh" (for default Body1/Body2 structure)
+            Transform meshTransform = segment.Find("BodyMesh");
+
+            // If not found, try "Segment" (for prefab-based segments)
+            if (meshTransform == null)
+                meshTransform = segment.Find("Segment");
+
+            // Fallback: if neither found, default to root
+            if (meshTransform == null)
+                meshTransform = segment;
+
+            // Modify the Rigidbody on the correct child
+            Rigidbody rb = meshTransform.GetComponent<Rigidbody>();
+            if (rb == null) rb = meshTransform.gameObject.AddComponent<Rigidbody>();
 
             rb.isKinematic = false;
             rb.useGravity = true;
-            rb.collisionDetectionMode = CollisionDetectionMode.Continuous;            
+            rb.interpolation = RigidbodyInterpolation.Interpolate;
+            rb.collisionDetectionMode = CollisionDetectionMode.Continuous;
 
+            // Disable isTrigger on all colliders
+            foreach (Collider col in meshTransform.GetComponentsInChildren<Collider>())
+            {
+                col.isTrigger = false;
+            }
+
+            // Detach follow logic on segment root
+            SnakeBodySegment sbs = segment.GetComponent<SnakeBodySegment>();
+            if (sbs != null) Destroy(sbs);
+
+            // Add light physics impulse
             Vector3 randomDir = Random.insideUnitSphere.normalized;
-            rb.AddForce(randomDir * Random.Range(100f, 200f));
+            rb.AddForce(randomDir * Random.Range(5f, 20f), ForceMode.Impulse);
         }
 
+        // Apply same to the head
         Rigidbody headRb = GetComponent<Rigidbody>();
         if (headRb == null) headRb = gameObject.AddComponent<Rigidbody>();
 
         headRb.isKinematic = false;
         headRb.useGravity = true;
-        headRb.AddForce(Vector3.up * 150f);
+        headRb.interpolation = RigidbodyInterpolation.Interpolate;
+        headRb.collisionDetectionMode = CollisionDetectionMode.Continuous;
+
+        // Disable isTrigger on the head collider(s)
+        foreach (Collider col in GetComponentsInChildren<Collider>())
+        {
+            col.isTrigger = false;
+        }
+
+        // Add a strong upward/backward push to emphasize impact
+        Vector3 impactForce = -transform.forward + Vector3.up * 0.5f;
+        headRb.AddForce(impactForce.normalized * 25f, ForceMode.Impulse);
+
+        // Optionally remove movement control script so player can't move after death
+        SnakeHeadController headController = GetComponent<SnakeHeadController>();
+        if (headController != null) Destroy(headController);
+
+        // Force physics update this frame
         Physics.SyncTransforms();
     }
 
