@@ -10,6 +10,7 @@ public abstract class BaseFood : MonoBehaviour
         if (snake != null)
         {
             OnConsume(snake);
+            VFXManager.Instance.PlayFoodConsumedVFX(transform);
             Destroy(gameObject);
         }
     }
