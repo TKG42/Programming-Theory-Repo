@@ -2,12 +2,12 @@ using UnityEngine;
 
 public class SnakeCollisionHandler : MonoBehaviour
 {
-    private BaseSnake snake;
+    public BaseSnake snake;
 
     private void Start()
     {
-        // If we’re on the head or any object that has a BaseSnake directly
-        snake = GetComponentInParent<BaseSnake>();
+        // If we’re on the head or any object that has a BaseSnake directly       
+        snake = GameObject.FindGameObjectWithTag("SnakeHead").GetComponent<BaseSnake>();
 
         // If we’re on a segment, trace from the segment script
         if (snake == null)
