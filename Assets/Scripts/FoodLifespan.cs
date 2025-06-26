@@ -2,15 +2,23 @@ using UnityEngine;
 
 public class FoodLifespan : MonoBehaviour
 {
-    public float despawnTime = 10f; // Set in inspector or by FoodManager
+    private float timer;
+    private float maxLifetime;
 
-    private void Start()
+    public void ResetTimer(float duration)
     {
-        Destroy(gameObject, despawnTime);
+        maxLifetime = duration;
+        timer = 0f;
     }
-
+       
     private void Update()
     {
+        timer += Time.deltaTime;
+        if (timer >= maxLifetime)
+        {
+            gameObject.SetActive(false);
+        }
+
         // Rotate food around Y-axis
         transform.Rotate(0f, 90f * Time.deltaTime, 0f);
     }

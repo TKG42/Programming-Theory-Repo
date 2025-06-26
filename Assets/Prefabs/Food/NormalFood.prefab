@@ -86,6 +86,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: NormalFood
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 461f0170c82b53340a9812199b63bbd4, type: 3}
+      propertyPath: m_TagString
+      value: NormalFood
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 461f0170c82b53340a9812199b63bbd4, type: 3}
       propertyPath: m_LocalScale.x
       value: 5
@@ -209,7 +213,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8831160f063b20a4aa63eb7d7274963e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  despawnTime: 10
 --- !u!4 &7275095742372688249 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 461f0170c82b53340a9812199b63bbd4, type: 3}

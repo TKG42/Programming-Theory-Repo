@@ -8,6 +8,9 @@ TagManager:
   - SnakeHead
   - SnakeSegment
   - FxTemporaire
+  - NormalFood
+  - PowerFood
+  - MegaFood
   layers:
   - Default
   - TransparentFX

@@ -23,9 +23,9 @@ public class VFXManager : MonoBehaviour
             {
                 // Detach so it survives the destruction of the food
                 vfx.SetParent(null);
-
                 ps.Play();
-                Destroy(vfx.gameObject, 1f); // Adjust duration as needed
+
+                StartCoroutine(ReattachAfterPlay(vfx, foodTransform, ps.main.duration));
             }
             else
             {
@@ -36,5 +36,15 @@ public class VFXManager : MonoBehaviour
         {
             Debug.LogWarning($"Food_consumed child not found on {foodTransform.name}");
         }
+    }
+
+    private System.Collections.IEnumerator ReattachAfterPlay(Transform vfx, Transform originalParent, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        vfx.SetParent(originalParent);
+        vfx.localPosition = Vector3.zero;
+        vfx.localRotation = Quaternion.identity;
+        vfx.gameObject.SetActive(false); // reset if needed
     }
 }

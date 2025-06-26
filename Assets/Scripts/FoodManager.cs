@@ -3,9 +3,9 @@ using UnityEngine.AI;
 
 public class FoodManager : MonoBehaviour
 {
-    public GameObject normalFoodPrefab;
-    public GameObject powerFoodPrefab;
-    public GameObject megaFoodPrefab;
+    public string normalFoodTag = "NormalFood";
+    public string powerFoodTag = "PowerFood";
+    public string megaFoodTag = "MegaFood";
 
     public float spawnInterval = 2f;
     public float despawnTime = 10f;
@@ -30,29 +30,29 @@ public class FoodManager : MonoBehaviour
 
     void SpawnRandomFood()
     {
-        GameObject foodToSpawn = ChooseFoodType();
+        string foodTag = ChooseFoodTag();
         Vector3 randomPos = GetValidSpawnPosition();
 
         if (randomPos != Vector3.zero)
         {
-            GameObject food = Instantiate(foodToSpawn, randomPos, Quaternion.identity);
+            GameObject food = ObjectPooler.Instance.SpawnFromPool(foodTag, randomPos, Quaternion.identity);
 
             // Assign despawn time if the script is attached
             FoodLifespan lifespan = food.GetComponent<FoodLifespan>();
             if (lifespan != null)
-                lifespan.despawnTime = despawnTime;
+                lifespan.ResetTimer(despawnTime);
         }
     }
 
-    GameObject ChooseFoodType()
+    string ChooseFoodTag()
     {
         float roll = Random.Range(0f, 100f);
         if (roll <= megaFoodChance)
-            return megaFoodPrefab;
+            return megaFoodTag;
         else if (roll <= megaFoodChance + powerFoodChance)
-            return powerFoodPrefab;
+            return powerFoodTag;
         else
-            return normalFoodPrefab;
+            return normalFoodTag;
     }
 
     Vector3 GetValidSpawnPosition()
