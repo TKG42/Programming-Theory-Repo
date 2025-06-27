@@ -183,6 +183,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49e555c2ec61b3f45b2dc5be729dbf6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  snake: {fileID: 0}
 --- !u!1 &966383968892447326
 GameObject:
   m_ObjectHideFlags: 0
@@ -334,6 +335,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49e555c2ec61b3f45b2dc5be729dbf6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  snake: {fileID: 0}
 --- !u!1 &1060431274608901072
 GameObject:
   m_ObjectHideFlags: 0
@@ -459,8 +461,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad1d0256229ee3b4d8f5424de8102568, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
   turnSpeed: 10
+  snake: {fileID: 0}
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -503,7 +505,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e2740fbe41914742b34efe096b326fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  moveSpeed: 6
   turnSpeed: 10
   bodySegmentPrefab: {fileID: 667292313104327117, guid: 09c83a6fbbc2e9b4db206e5d1f23e5df, type: 3}
   bodyRoot: {fileID: 7635440409189046839}
@@ -526,6 +528,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49e555c2ec61b3f45b2dc5be729dbf6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  snake: {fileID: 0}
 --- !u!1 &1830197478735732014
 GameObject:
   m_ObjectHideFlags: 0

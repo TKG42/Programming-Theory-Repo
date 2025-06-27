@@ -151,6 +151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49e555c2ec61b3f45b2dc5be729dbf6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  snake: {fileID: 0}
 --- !u!1 &777015374176450510
 GameObject:
   m_ObjectHideFlags: 0
@@ -729,8 +730,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad1d0256229ee3b4d8f5424de8102568, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
   turnSpeed: 10
+  snake: {fileID: 0}
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -773,7 +774,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d347db6517448f44b1140c3cc305199, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  moveSpeed: 7
   turnSpeed: 10
   bodySegmentPrefab: {fileID: 3113597628062528924, guid: 902ae8914e1b9654c8182c686473a85d, type: 3}
   bodyRoot: {fileID: 1956624309969210719}
@@ -783,6 +784,8 @@ MonoBehaviour:
   segmentRotationEuler: {x: 0, y: 0, z: 0}
   orangeSegmentPrefab: {fileID: 3113597628062528924, guid: 902ae8914e1b9654c8182c686473a85d, type: 3}
   darkOrangeSegmentPrefab: {fileID: 1496574958755585338, guid: bb41c69496a4c2644a280478dd436e34, type: 3}
+  speedBoostAmount: 12
+  speedBoostDuration: 7
 --- !u!114 &3292587478307986024
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -795,6 +798,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49e555c2ec61b3f45b2dc5be729dbf6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  snake: {fileID: 0}
 --- !u!1 &8809198669359032624
 GameObject:
   m_ObjectHideFlags: 0
@@ -979,3 +983,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49e555c2ec61b3f45b2dc5be729dbf6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  snake: {fileID: 0}
