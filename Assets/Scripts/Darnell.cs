@@ -37,7 +37,8 @@ public class Darnell : BaseSnake
             GameObject newSegment = Instantiate(
                 chosenPrefab,
                 lastSegment.position,
-                offsetRotation
+                offsetRotation,
+                bodyRoot // <--- sets parent to bodyRoot
             );
 
             SnakeBodySegment segmentScript = newSegment.GetComponent<SnakeBodySegment>();

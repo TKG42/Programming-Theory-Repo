@@ -25,6 +25,11 @@ public abstract class BaseSnake : MonoBehaviour
             foreach (Transform child in bodyRoot)
                 bodySegments.Add(child);
         }
+
+        // Assign self to head controller
+        SnakeHeadController head = GetComponent<SnakeHeadController>();
+        if (head != null)
+            head.snake = this;
     }
 
     public virtual void AddSegment(int count = 1)
@@ -35,7 +40,8 @@ public abstract class BaseSnake : MonoBehaviour
             GameObject newSegment = Instantiate(
                 bodySegmentPrefab,
                 lastSegment.position,
-                Quaternion.Euler(segmentRotationEuler)
+                Quaternion.Euler(segmentRotationEuler),
+                bodyRoot // <--- sets parent to bodyRoot
             );
 
             SnakeBodySegment segmentScript = newSegment.GetComponent<SnakeBodySegment>();
@@ -53,7 +59,7 @@ public abstract class BaseSnake : MonoBehaviour
 
         // Tail visual sizes and spacing configs
         float[] tailScales = new float[] { 0.4f, 0.6f, 0.8f };
-        float[] tailDistances = new float[] { 0.5f, 0.8f, 1.0f }; // match indices
+        float[] tailDistances = new float[] { 0.8f, 1f, 1.2f }; // match indices
 
         for (int i = 0; i < tailScales.Length; i++)
         {

@@ -3,8 +3,8 @@ using UnityEngine;
 public class SnakeHeadController : MonoBehaviour
 {
     [Header("Movement Settings")]
-    public float moveSpeed = 5f;
     public float turnSpeed = 10f;
+    public BaseSnake snake; // assigined at runtime in BaseSnake.Start()
     public LayerMask groundLayer; // Assign a ground layer in the Inspector
 
     private Camera mainCamera;
@@ -39,6 +39,7 @@ public class SnakeHeadController : MonoBehaviour
 
     void MoveForward()
     {
-        transform.position += transform.forward * moveSpeed * Time.deltaTime;
+        if (snake == null) return;
+        transform.position += transform.forward * snake.moveSpeed * Time.deltaTime;
     }
 }

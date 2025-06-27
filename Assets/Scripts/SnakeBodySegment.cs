@@ -15,7 +15,10 @@ public class SnakeBodySegment : MonoBehaviour
         {
             Vector3 direction = (target.position - transform.position).normalized;
             Vector3 targetPosition = target.position - direction * minDistance;
-            transform.position = Vector3.Lerp(transform.position, targetPosition, followSpeed * Time.deltaTime);
+
+            // Dynamically scale follow speed based on distance and deltaTime
+            float dynamicSpeed = Mathf.Max(followSpeed, distance / Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, targetPosition, dynamicSpeed * Time.deltaTime);
 
             Quaternion targetRotation = Quaternion.LookRotation(target.position - transform.position);
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, followSpeed * Time.deltaTime);
