@@ -26,13 +26,21 @@ public class SnakeCollisionHandler : MonoBehaviour
     {
         if (snake == null || GameManager.Instance == null) return;
 
+        // Colliding with a wall or obstacle
         if (other.CompareTag("Obstacle"))
         {
+            if (snake is Darnell darnell && darnell.HasShield())
+            {
+                darnell.ConsumeShield();
+                return; // Prevent death
+            }
+
             Debug.Log("Snake collided with an obstacle!");
             snake.Die();
             return;
         }
 
+        // Colliding with own body - always fatal
         if (CompareTag("SnakeHead") && other.CompareTag("SnakeSegment"))
         {
             Debug.Log("Snake collided with itself!");

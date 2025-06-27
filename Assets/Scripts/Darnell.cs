@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class Darnell : BaseSnake
 {
@@ -6,8 +7,14 @@ public class Darnell : BaseSnake
     public GameObject blueSegmentPrefab;
     public GameObject tanSegmentPrefab;
 
+    public bool HasShield() => hasShield;
+    public bool IsInvulnerable() => isTemporarilyInvulnerable;
+
     private int segmentSpawnCounter = 0;
     private bool hasShield = false;
+    private bool isTemporarilyInvulnerable = false;
+
+    private float postShieldInvulnerabilityDuration = 2f;
 
     public override void OnEatPowerFood()
     {
@@ -67,12 +74,36 @@ public class Darnell : BaseSnake
         if (hasShield)
         {
             Debug.Log("Darnell smashed a wall with shield!");
-            hasShield = false;
-            UIManager.Instance.ShowShieldIcon(false);
+            ConsumeShield();
+            return;
         }
-        else
+
+        if (isTemporarilyInvulnerable) 
         {
-            base.Die();
+            Debug.Log("Darnell is invulnerable - no death triggered.");
+            return;
         }
+
+        base.Die();
+    }
+
+    public void ConsumeShield()
+    {
+        hasShield = false;
+        UIManager.Instance.ShowShieldIcon(false);
+        Debug.Log("Darnell's shield was consumed!");
+
+        // Trigger camera shake
+        CameraShake.Instance?.Shake(0.25f, 0.4f); // duration, intensity
+        StartCoroutine(TemporaryInvulnerability());
+
+        // Optional: Add shield break VFX or sound here
+    }
+
+    private IEnumerator TemporaryInvulnerability()
+    {
+        isTemporarilyInvulnerable = true;
+        yield return new WaitForSeconds(postShieldInvulnerabilityDuration);
+        isTemporarilyInvulnerable = false;  
     }
 }
