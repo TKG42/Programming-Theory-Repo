@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Darnell : BaseSnake
 {
@@ -7,14 +8,49 @@ public class Darnell : BaseSnake
     public GameObject blueSegmentPrefab;
     public GameObject tanSegmentPrefab;
 
+    public Material blinkMaterial;
+
     public bool HasShield() => hasShield;
     public bool IsInvulnerable() => isTemporarilyInvulnerable;
+
+    private List<Renderer> renderers = new List<Renderer>();
+    private Dictionary<Renderer, Material[]> originalMaterials = new Dictionary<Renderer, Material[]>();
 
     private int segmentSpawnCounter = 0;
     private bool hasShield = false;
     private bool isTemporarilyInvulnerable = false;
 
     private float postShieldInvulnerabilityDuration = 2f;
+
+    protected override void Start()
+    {
+        base.Start();
+        CacheOriginalRenderers();
+    }
+
+    private void CacheOriginalRenderers()
+    {
+        renderers.Clear();
+        originalMaterials.Clear();
+
+        // Head renderer(s)
+        foreach (var r in GetComponentsInChildren<Renderer>())
+        {
+            renderers.Add(r);
+            originalMaterials[r] = r.materials;
+        }
+
+        // Body segment renderers
+        foreach (var segment in bodySegments)
+        {
+            foreach (var r in segment.GetComponentsInChildren<Renderer>())
+            {
+                renderers.Add(r);
+                originalMaterials[r] = r.materials;
+            }
+        }
+    }
+
 
     public override void OnEatPowerFood()
     {
@@ -56,6 +92,7 @@ public class Darnell : BaseSnake
         }
 
         segmentCount += count;
+        CacheOriginalRenderers();
     }
 
     public override void OnEatNormalFood()
@@ -103,7 +140,45 @@ public class Darnell : BaseSnake
     private IEnumerator TemporaryInvulnerability()
     {
         isTemporarilyInvulnerable = true;
-        yield return new WaitForSeconds(postShieldInvulnerabilityDuration);
-        isTemporarilyInvulnerable = false;  
+
+        float elapsed = 0f;
+        float blinkInterval = 0.2f;
+
+        while (elapsed < postShieldInvulnerabilityDuration)
+        {
+            ApplyBlinkMaterial();
+            yield return new WaitForSeconds(blinkInterval);
+            RestoreOriginalMaterials();
+            yield return new WaitForSeconds(blinkInterval);
+            elapsed += blinkInterval * 2f;
+        }
+
+        RestoreOriginalMaterials();
+        isTemporarilyInvulnerable = false;
+    }
+
+    private void ApplyBlinkMaterial()
+    {
+        if (blinkMaterial == null) return;
+
+        foreach (var r in renderers)
+        {
+            int count = r.materials.Length;
+            Material[] tempMats = new Material[count];
+            for (int i = 0; i < count; i++)
+            {
+                tempMats[i] = blinkMaterial;
+            }
+            r.materials = tempMats;
+        }
+    }
+
+    private void RestoreOriginalMaterials()
+    {
+        foreach (var kvp in originalMaterials)
+        {
+            if (kvp.Key != null)
+                kvp.Key.materials = kvp.Value;
+        }
     }
 }

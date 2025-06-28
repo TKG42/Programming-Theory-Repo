@@ -10,18 +10,34 @@ public class SnakeBodySegment : MonoBehaviour
     {
         if (target == null) return;
 
-        float distance = Vector3.Distance(transform.position, target.position);
-        if (distance > minDistance)
-        {
-            Vector3 direction = (target.position - transform.position).normalized;
-            Vector3 targetPosition = target.position - direction * minDistance;
+        Vector3 toTarget = target.position - transform.position;
 
-            // Dynamically scale follow speed based on distance and deltaTime
+        // Defensive check: NaN position on target or self
+        if (float.IsNaN(toTarget.x) || float.IsNaN(toTarget.y) || float.IsNaN(toTarget.z))
+            return;
+
+        float distance = toTarget.magnitude;
+
+        // Skip movement if too close or invalid
+        if (distance <= minDistance || distance <= Mathf.Epsilon)
+            return;
+
+        Vector3 direction = toTarget / distance; // safe normalization
+        Vector3 targetPosition = target.position - direction * minDistance;
+
+        // Defensive NaN check before applying move
+        if (!float.IsNaN(targetPosition.x) && !float.IsNaN(targetPosition.y) && !float.IsNaN(targetPosition.z))
+        {
             float dynamicSpeed = Mathf.Max(followSpeed, distance / Time.deltaTime);
             transform.position = Vector3.MoveTowards(transform.position, targetPosition, dynamicSpeed * Time.deltaTime);
 
-            Quaternion targetRotation = Quaternion.LookRotation(target.position - transform.position);
+            Quaternion targetRotation = Quaternion.LookRotation(toTarget);
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, followSpeed * Time.deltaTime);
         }
+    }
+
+    private void OnDisable()
+    {
+        target = null; // Prevent late-update from running into NaN after destruction
     }
 }

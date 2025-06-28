@@ -516,6 +516,7 @@ MonoBehaviour:
   lightBlueSegmentPrefab: {fileID: 667292313104327117, guid: 09c83a6fbbc2e9b4db206e5d1f23e5df, type: 3}
   blueSegmentPrefab: {fileID: 7749690018151759190, guid: 4d23044de5466bf4486039470c9d9066, type: 3}
   tanSegmentPrefab: {fileID: 156084758444617772, guid: fc68b95278d6e124f87307bd6417fab5, type: 3}
+  blinkMaterial: {fileID: 2100000, guid: 0e21cb768e82b6c4e98def37eea648bf, type: 2}
 --- !u!114 &5314452291427755636
 MonoBehaviour:
   m_ObjectHideFlags: 0
