@@ -11,6 +11,8 @@ TagManager:
   - NormalFood
   - PowerFood
   - MegaFood
+  - CrackAttack
+  - BreakableObstacle
   layers:
   - Default
   - TransparentFX

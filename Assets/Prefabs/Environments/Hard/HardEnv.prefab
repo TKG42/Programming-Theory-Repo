@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 35320531174333624}
   - component: {fileID: 2542083427467750464}
   - component: {fileID: 5248681681245392080}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Twall (11)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -120,9 +120,9 @@ GameObject:
   - component: {fileID: 4231660210558073892}
   - component: {fileID: 3383278181256766299}
   - component: {fileID: 8064747528044603936}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Lwall (8)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -264,9 +264,9 @@ GameObject:
   - component: {fileID: 6071489301205561215}
   - component: {fileID: 7073980490261880164}
   - component: {fileID: 8684234709777566669}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Twall (12)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -408,9 +408,9 @@ GameObject:
   - component: {fileID: 1096326723924364587}
   - component: {fileID: 2293692286271642}
   - component: {fileID: 6991549059158576909}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Rwall (2)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -516,9 +516,9 @@ GameObject:
   - component: {fileID: 1846856689767036372}
   - component: {fileID: 8158141008129457762}
   - component: {fileID: 7132208382046050466}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Twall (9)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -624,9 +624,9 @@ GameObject:
   - component: {fileID: 6098310221565564}
   - component: {fileID: 3960982958803100050}
   - component: {fileID: 7043168896268575214}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Twall (37)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -768,9 +768,9 @@ GameObject:
   - component: {fileID: 7300241702389300488}
   - component: {fileID: 5660426092510846072}
   - component: {fileID: 7059567151368929185}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Rwall (6)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -876,9 +876,9 @@ GameObject:
   - component: {fileID: 2273818979114765921}
   - component: {fileID: 6596560558431680325}
   - component: {fileID: 6241644639126766670}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Twall (33)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -984,9 +984,9 @@ GameObject:
   - component: {fileID: 1541894278001832661}
   - component: {fileID: 1825251428523920946}
   - component: {fileID: 6083223733697311875}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Rwall (8)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1092,9 +1092,9 @@ GameObject:
   - component: {fileID: 2329522454953367779}
   - component: {fileID: 5617247933731628704}
   - component: {fileID: 8649496645413092669}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Twall (14)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1200,9 +1200,9 @@ GameObject:
   - component: {fileID: 3781795010936214150}
   - component: {fileID: 7440770088420531761}
   - component: {fileID: 2174884371562805809}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Twall (1)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1308,9 +1308,9 @@ GameObject:
   - component: {fileID: 5153588561998239834}
   - component: {fileID: 5400196960726753157}
   - component: {fileID: 6297051638239605924}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Twall (18)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1416,9 +1416,9 @@ GameObject:
   - component: {fileID: 7223590303219748074}
   - component: {fileID: 2546728912464238951}
   - component: {fileID: 8704529169663088902}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Twall (25)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1664,9 +1664,9 @@ GameObject:
   - component: {fileID: 2324312152862839025}
   - component: {fileID: 706015926805263204}
   - component: {fileID: 468205586328824422}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Lwall (6)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1772,9 +1772,9 @@ GameObject:
   - component: {fileID: 3287431953170280268}
   - component: {fileID: 7829068848566551926}
   - component: {fileID: 8018086695465825333}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Twall (23)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1880,9 +1880,9 @@ GameObject:
   - component: {fileID: 6167488741733912855}
   - component: {fileID: 280353753901611669}
   - component: {fileID: 1705274514381368361}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Twall (5)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1988,9 +1988,9 @@ GameObject:
   - component: {fileID: 7688644429508572376}
   - component: {fileID: 6686403314591804042}
   - component: {fileID: 77273986436574857}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Twall (8)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2164,9 +2164,9 @@ GameObject:
   - component: {fileID: 417421766813028001}
   - component: {fileID: 2441661975211531028}
   - component: {fileID: 1495235609776172514}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Twall (6)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2272,9 +2272,9 @@ GameObject:
   - component: {fileID: 2101970585272845119}
   - component: {fileID: 7142704329343368748}
   - component: {fileID: 3338314835821618857}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Lwall (3)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2380,9 +2380,9 @@ GameObject:
   - component: {fileID: 5148894764224512443}
   - component: {fileID: 7380297734736997677}
   - component: {fileID: 931678600696152511}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Twall (31)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2524,9 +2524,9 @@ GameObject:
   - component: {fileID: 4468551161081272255}
   - component: {fileID: 2249410235565073582}
   - component: {fileID: 6449584614458046185}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Twall (35)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2632,9 +2632,9 @@ GameObject:
   - component: {fileID: 5709333609260012412}
   - component: {fileID: 4857546588756631180}
   - component: {fileID: 4941295453600355925}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Twall (32)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2740,9 +2740,9 @@ GameObject:
   - component: {fileID: 2530299006999744383}
   - component: {fileID: 9058061637380529848}
   - component: {fileID: 77013342527027664}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Twall (17)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2927,9 +2927,9 @@ GameObject:
   - component: {fileID: 131935998416905140}
   - component: {fileID: 928395162933435514}
   - component: {fileID: 9078861389077639196}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Twall (15)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3035,9 +3035,9 @@ GameObject:
   - component: {fileID: 5568166963110313164}
   - component: {fileID: 5941179859856860}
   - component: {fileID: 5115733163425668922}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Twall (21)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3143,9 +3143,9 @@ GameObject:
   - component: {fileID: 7341875185830905845}
   - component: {fileID: 1760550144786722009}
   - component: {fileID: 2051420247452417229}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Twall (7)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3251,9 +3251,9 @@ GameObject:
   - component: {fileID: 2264078586129189044}
   - component: {fileID: 6082349223416083773}
   - component: {fileID: 6792969456081814510}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Rwall (4)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3359,9 +3359,9 @@ GameObject:
   - component: {fileID: 7738203353657719010}
   - component: {fileID: 7311103219424796070}
   - component: {fileID: 1253130526590861173}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Lwall (2)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3467,9 +3467,9 @@ GameObject:
   - component: {fileID: 5781595875111821642}
   - component: {fileID: 5523674741953828686}
   - component: {fileID: 3615466200110759268}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Twall (19)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3575,9 +3575,9 @@ GameObject:
   - component: {fileID: 8045435257915977662}
   - component: {fileID: 1468808367638661739}
   - component: {fileID: 8272325924444107937}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Rwall (1)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3683,9 +3683,9 @@ GameObject:
   - component: {fileID: 1751066214515542954}
   - component: {fileID: 4347294555645610708}
   - component: {fileID: 8883803552307341019}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Twall (29)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3791,9 +3791,9 @@ GameObject:
   - component: {fileID: 4709698667351119175}
   - component: {fileID: 2500624825092801274}
   - component: {fileID: 3494009182194839475}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Rwall (3)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3899,9 +3899,9 @@ GameObject:
   - component: {fileID: 4549943644980287786}
   - component: {fileID: 9085846342703747442}
   - component: {fileID: 445899210531155677}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Twall (27)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4112,9 +4112,9 @@ GameObject:
   - component: {fileID: 6355982452341518076}
   - component: {fileID: 54372226686483084}
   - component: {fileID: 8566596276280418434}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Twall (3)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4256,9 +4256,9 @@ GameObject:
   - component: {fileID: 4355536261789641174}
   - component: {fileID: 9172161431878226798}
   - component: {fileID: 5920182632893576822}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Twall (13)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4364,9 +4364,9 @@ GameObject:
   - component: {fileID: 5301231730647399023}
   - component: {fileID: 6474188512947529678}
   - component: {fileID: 6656837176465311941}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Twall (26)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4472,9 +4472,9 @@ GameObject:
   - component: {fileID: 2787998945624936197}
   - component: {fileID: 6164400139026002646}
   - component: {fileID: 4404711532142106123}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Rwall (7)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4616,9 +4616,9 @@ GameObject:
   - component: {fileID: 9011763611541753943}
   - component: {fileID: 7733243277395201410}
   - component: {fileID: 3604877778496674114}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Rwall (5)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4724,9 +4724,9 @@ GameObject:
   - component: {fileID: 6645310362537895709}
   - component: {fileID: 7542848314151721880}
   - component: {fileID: 7826565243668671198}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Twall (30)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4832,9 +4832,9 @@ GameObject:
   - component: {fileID: 7802477833650184882}
   - component: {fileID: 6406602670732623252}
   - component: {fileID: 2720260961708177750}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Twall (22)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4940,9 +4940,9 @@ GameObject:
   - component: {fileID: 1234899186882561228}
   - component: {fileID: 2878900174078518558}
   - component: {fileID: 259936905072309287}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Lwall (1)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5084,9 +5084,9 @@ GameObject:
   - component: {fileID: 6342776994448354795}
   - component: {fileID: 7626914868379689288}
   - component: {fileID: 942564474611842905}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Lwall (4)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5228,9 +5228,9 @@ GameObject:
   - component: {fileID: 8424595576312875681}
   - component: {fileID: 4093517411798472198}
   - component: {fileID: 7617892588887068326}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Lwall (7)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5511,9 +5511,9 @@ GameObject:
   - component: {fileID: 7433111494563719561}
   - component: {fileID: 5157523029668023141}
   - component: {fileID: 8215509614213918239}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Lwall (5)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5619,9 +5619,9 @@ GameObject:
   - component: {fileID: 2382440633193967818}
   - component: {fileID: 2201755571858742153}
   - component: {fileID: 6258223673844312759}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Twall (2)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5727,9 +5727,9 @@ GameObject:
   - component: {fileID: 4335494836956541124}
   - component: {fileID: 7363259714270459380}
   - component: {fileID: 4676015478628990981}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Twall (24)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5867,9 +5867,9 @@ GameObject:
   - component: {fileID: 5619283127892725043}
   - component: {fileID: 4810727145244509486}
   - component: {fileID: 4317516136620960150}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Twall (34)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5975,9 +5975,9 @@ GameObject:
   - component: {fileID: 7292839130595080301}
   - component: {fileID: 6856710564129125984}
   - component: {fileID: 3574545288980787982}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Twall (36)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6083,9 +6083,9 @@ GameObject:
   - component: {fileID: 6982850503194586261}
   - component: {fileID: 6923185652938216802}
   - component: {fileID: 1563521051187990203}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Twall (4)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6191,9 +6191,9 @@ GameObject:
   - component: {fileID: 8902946611547758297}
   - component: {fileID: 5053492786403684001}
   - component: {fileID: 4574503562431038304}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Twall (20)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6299,9 +6299,9 @@ GameObject:
   - component: {fileID: 4254928687926635770}
   - component: {fileID: 3119854323520547030}
   - component: {fileID: 2297882001178821435}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Twall (28)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6407,9 +6407,9 @@ GameObject:
   - component: {fileID: 1563878845960580594}
   - component: {fileID: 5581931129271842172}
   - component: {fileID: 2120346425482494069}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Twall (10)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6515,9 +6515,9 @@ GameObject:
   - component: {fileID: 3521405753301473646}
   - component: {fileID: 1367926916384613556}
   - component: {fileID: 3245375585060178240}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Twall (16)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10327,6 +10327,22 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 5d9a948ee41223348af2b47f605f47cf, type: 2}
+    - target: {fileID: 896732674644398334, guid: 81b5d57293ce5db4cb6fbe4614bef077, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 896732674644398334, guid: 81b5d57293ce5db4cb6fbe4614bef077, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 2797302624251479857, guid: 81b5d57293ce5db4cb6fbe4614bef077, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2797302624251479857, guid: 81b5d57293ce5db4cb6fbe4614bef077, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 5888027776944841805, guid: 81b5d57293ce5db4cb6fbe4614bef077, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -10378,6 +10394,14 @@ PrefabInstance:
     - target: {fileID: 6809140621266113003, guid: 81b5d57293ce5db4cb6fbe4614bef077, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7446199188994122772, guid: 81b5d57293ce5db4cb6fbe4614bef077, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7446199188994122772, guid: 81b5d57293ce5db4cb6fbe4614bef077, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 8157226640232213683, guid: 81b5d57293ce5db4cb6fbe4614bef077, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'

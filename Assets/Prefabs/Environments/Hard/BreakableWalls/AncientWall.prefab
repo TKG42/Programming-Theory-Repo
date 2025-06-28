@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 7905110967694145179}
   - component: {fileID: 1714409783021607017}
   - component: {fileID: 958326249224046457}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: AncientWall
-  m_TagString: Obstacle
+  m_TagString: BreakableObstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

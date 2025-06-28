@@ -6,6 +6,7 @@ public class FoodManager : MonoBehaviour
     public string normalFoodTag = "NormalFood";
     public string powerFoodTag = "PowerFood";
     public string megaFoodTag = "MegaFood";
+    public string crackAttackTag = "CrackAttack";
 
     public float spawnInterval = 2f;
     public float despawnTime = 10f;
@@ -33,6 +34,10 @@ public class FoodManager : MonoBehaviour
         string foodTag = ChooseFoodTag();
         Vector3 randomPos = GetValidSpawnPosition();
 
+        if (foodTag == megaFoodTag)
+        {
+            CrackAttackManager.Instance?.RegisterMegaFoodEaten(); // <-- register the mega food
+        }
         if (randomPos != Vector3.zero)
         {
             GameObject food = ObjectPooler.Instance.SpawnFromPool(foodTag, randomPos, Quaternion.identity);

@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2234714105546415008}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -21.619467, y: 33.25384, z: -48.511623}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -53,4 +53,7 @@ MonoBehaviour:
     size: 10
   - tag: MegaFood
     prefab: {fileID: 5108423280468093387, guid: a65806b12f5e1ba4eb21cdc2197bf6af, type: 3}
+    size: 10
+  - tag: CrackAttack
+    prefab: {fileID: 8573811349847909931, guid: 97d656965bd54f34aa3cff7dc459b066, type: 3}
     size: 10

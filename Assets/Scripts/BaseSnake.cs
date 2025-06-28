@@ -105,6 +105,8 @@ public abstract class BaseSnake : MonoBehaviour
         ScoreManager.Instance.ActivateMultiplier(3, 5f); // 3x for 5 seconds
         AddSegment(3);
         UpdateTailScales();
+
+        CrackAttackManager.Instance?.RegisterMegaFoodEaten();
     }
 
     public virtual void Die()

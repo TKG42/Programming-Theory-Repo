@@ -27,8 +27,16 @@ public class SnakeCollisionHandler : MonoBehaviour
         if (snake == null || GameManager.Instance == null) return;
 
         // Colliding with a wall or obstacle
-        if (other.CompareTag("Obstacle"))
+        if (other.gameObject.layer == LayerMask.NameToLayer("Obstacles"))
         {
+            // Only the head should break breakables
+            if (CrackAttackManager.Instance.HasSlamBuff() && other.CompareTag("BreakableObstacle"))
+            {
+                CrackAttackManager.Instance.ConsumeSlamCharge();
+                Destroy(other.gameObject); // Add VFX here if needed
+                return;
+            }
+
             if (snake is Darnell darnell && darnell.HasShield())
             {
                 darnell.ConsumeShield();
