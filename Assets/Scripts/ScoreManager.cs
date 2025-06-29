@@ -31,7 +31,7 @@ public class ScoreManager : MonoBehaviour
 
     public void AddPoints(int basePoints)
     {
-        int total = basePoints * (1 + bonusMultiplier);
+        int total = basePoints * (currentMultiplier + bonusMultiplier);
         baseScore += total;
         UpdateUI();
     }
@@ -55,6 +55,12 @@ public class ScoreManager : MonoBehaviour
         bool show5x = (bonusMultiplier == 5); // optional override if you want exact logic
 
         UIManager.Instance.UpdateMultiplierVisuals(has2x, has3x);
+    }
+
+    public void SetBaseMultiplier(int value)
+    {
+        currentMultiplier = Mathf.Max(1, value);
+        UpdateUI();
     }
 
     public int GetScore() => baseScore;

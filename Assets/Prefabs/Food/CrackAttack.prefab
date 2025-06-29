@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 7803300574582391771}
   - component: {fileID: 9215968526459815288}
   - component: {fileID: 642022215628811251}
+  - component: {fileID: 1671594834984267836}
+  - component: {fileID: 8417997522200908723}
   m_Layer: 0
   m_Name: CrackAttack
   m_TagString: CrackAttack
@@ -109,6 +111,31 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 3.4280236, y: 6.784022, z: 3.4032612}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1671594834984267836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8573811349847909931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 391fd6dd5453bfd4381f162abba978e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pointsWorth: 250
+--- !u!114 &8417997522200908723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8573811349847909931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8831160f063b20a4aa63eb7d7274963e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6524636983832984396
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -32,20 +32,20 @@ public class FoodManager : MonoBehaviour
     void SpawnRandomFood()
     {
         string foodTag = ChooseFoodTag();
-        Vector3 randomPos = GetValidSpawnPosition();
+        Vector3 randomPos = FoodManager.GetValidSpawnPositionStatic(spawnAreaMin, spawnAreaMax);
 
-        if (foodTag == megaFoodTag)
-        {
-            CrackAttackManager.Instance?.RegisterMegaFoodEaten(); // <-- register the mega food
-        }
         if (randomPos != Vector3.zero)
         {
             GameObject food = ObjectPooler.Instance.SpawnFromPool(foodTag, randomPos, Quaternion.identity);
 
-            // Assign despawn time if the script is attached
             FoodLifespan lifespan = food.GetComponent<FoodLifespan>();
             if (lifespan != null)
                 lifespan.ResetTimer(despawnTime);
+
+            if (foodTag == megaFoodTag)
+            {
+                CrackAttackManager.Instance?.RegisterMegaFoodEaten();
+            }
         }
     }
 
@@ -60,14 +60,14 @@ public class FoodManager : MonoBehaviour
             return normalFoodTag;
     }
 
-    Vector3 GetValidSpawnPosition()
+    public static Vector3 GetValidSpawnPositionStatic(Vector3 min, Vector3 max)
     {
         for (int attempts = 0; attempts < 10; attempts++)
         {
             Vector3 candidate = new Vector3(
-                Random.Range(spawnAreaMin.x, spawnAreaMax.x),
+                Random.Range(min.x, max.x),
                 51.0f,
-                Random.Range(spawnAreaMin.z, spawnAreaMax.z)
+                Random.Range(min.z, max.z)
             );
 
             if (NavMesh.SamplePosition(candidate, out NavMeshHit hit, 1.0f, NavMesh.AllAreas))

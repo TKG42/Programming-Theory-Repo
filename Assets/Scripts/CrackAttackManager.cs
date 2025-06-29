@@ -39,9 +39,8 @@ public class CrackAttackManager : MonoBehaviour
     }
 
     public void OnCrackAttackEaten(BaseSnake snake, int points)
-    {
-        if (currentSnake == null)
-            currentSnake = snake;
+    {      
+        currentSnake = snake;
 
         if (currentStacks < maxStack)
         {
@@ -81,7 +80,16 @@ public class CrackAttackManager : MonoBehaviour
     private void SpawnCrackAttack()
     {
         Vector3 randomPos = GetRandomSpawnPosition(); // define as needed
-        ObjectPooler.Instance.SpawnFromPool(crackAttackPoolTag, randomPos, Quaternion.identity);
+        GameObject spawned = ObjectPooler.Instance.SpawnFromPool(crackAttackPoolTag, randomPos, Quaternion.identity);
+
+        if (spawned == null)
+            Debug.LogWarning("[CrackAttackManager] CrackAttack pool returned null. Is it set up correctly?");
+        else
+            Debug.Log($"[CrackAttackManager] CrackAttack spawned at {randomPos}");
+
+        FoodLifespan lifespan = spawned.GetComponent<FoodLifespan>();
+        if (lifespan != null)
+            lifespan.ResetTimer(15f);   
     }
 
     private void PlayCrackVFX(Vector3 pos)
@@ -92,8 +100,9 @@ public class CrackAttackManager : MonoBehaviour
 
     private Vector3 GetRandomSpawnPosition()
     {
-        // For now, just return a point within bounds — this can be improved later
-        float range = 10f;
-        return new Vector3(Random.Range(-range, range), 0f, Random.Range(-range, range));
+        return FoodManager.GetValidSpawnPositionStatic(
+            new Vector3(-44f, 0f, -85f),
+            new Vector3(44f, 0f, -44f)
+        );
     }
 }

@@ -14,7 +14,6 @@ public abstract class BaseSnake : MonoBehaviour
 
     [SerializeField] protected Vector3 segmentRotationEuler = new Vector3(0f, 0f, 90f);
 
-    protected int points = 0;
     protected int segmentCount = 0;
 
     protected virtual void Start()
@@ -194,6 +193,4 @@ public abstract class BaseSnake : MonoBehaviour
         if (GameManager.Instance != null)
             GameManager.Instance.GameOver();
     }
-
-    public int GetCurrentScore() => points;
 }

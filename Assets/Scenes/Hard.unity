@@ -383,6 +383,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2110242520202044790, guid: b740689ad6b1fc249a8e3df0131549b7, type: 3}
+      propertyPath: pools.Array.data[3].size
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2234714105546415008, guid: b740689ad6b1fc249a8e3df0131549b7, type: 3}
       propertyPath: m_Name
       value: ObjectPooler
