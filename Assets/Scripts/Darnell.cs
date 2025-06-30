@@ -28,6 +28,14 @@ public class Darnell : BaseSnake
         CacheOriginalRenderers();
     }
 
+    private void LateUpdate()
+    {
+        if (!isTemporarilyInvulnerable)
+        {
+            RestoreOriginalMaterials(); // just in case
+        }
+    }
+
     private void CacheOriginalRenderers()
     {
         renderers.Clear();
@@ -143,18 +151,23 @@ public class Darnell : BaseSnake
 
         float elapsed = 0f;
         float blinkInterval = 0.2f;
+        bool isBlinkOn = false;
 
         while (elapsed < postShieldInvulnerabilityDuration)
         {
-            ApplyBlinkMaterial();
+            if (isBlinkOn)
+                RestoreOriginalMaterials();
+            else
+                ApplyBlinkMaterial();
+
+            isBlinkOn = !isBlinkOn;
             yield return new WaitForSeconds(blinkInterval);
-            RestoreOriginalMaterials();
-            yield return new WaitForSeconds(blinkInterval);
-            elapsed += blinkInterval * 2f;
+            elapsed += blinkInterval;
         }
 
         RestoreOriginalMaterials();
         isTemporarilyInvulnerable = false;
+        Debug.Log("Invulnerability ended. Restoring materials.");
     }
 
     private void ApplyBlinkMaterial()
