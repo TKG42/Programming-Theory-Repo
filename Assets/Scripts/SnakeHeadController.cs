@@ -16,6 +16,7 @@ public class SnakeHeadController : MonoBehaviour
 
     private void Update()
     {
+        if (Time.timeScale == 0f) return; // Prevent movement during pause
         FollowMouse();
         MoveForward();
     }

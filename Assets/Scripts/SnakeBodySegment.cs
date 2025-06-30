@@ -6,8 +6,32 @@ public class SnakeBodySegment : MonoBehaviour
     public float followSpeed = 10f;
     public float minDistance = 0.5f;
 
+    private static bool hasLoggedPaused = false;
+    private bool wasPausedLastFrame = false;
+
     private void Update()
     {
+        if (Time.timeScale == 0f)
+        {
+            if (!hasLoggedPaused)
+            {
+                Debug.LogWarning("[Segment] Skipped update due to pause.");
+                hasLoggedPaused = true;
+            }
+
+            wasPausedLastFrame = true; 
+            return;
+        }
+
+        if (wasPausedLastFrame)
+        {
+            wasPausedLastFrame = false; 
+            return;
+        }
+
+        if (hasLoggedPaused)
+            hasLoggedPaused = false;
+
         if (target == null) return;
 
         Vector3 toTarget = target.position - transform.position;
@@ -22,7 +46,7 @@ public class SnakeBodySegment : MonoBehaviour
         if (distance <= minDistance || distance <= Mathf.Epsilon)
             return;
 
-        Vector3 direction = toTarget / distance; // safe normalization
+        Vector3 direction = toTarget / distance;
         Vector3 targetPosition = target.position - direction * minDistance;
 
         // Defensive NaN check before applying move
