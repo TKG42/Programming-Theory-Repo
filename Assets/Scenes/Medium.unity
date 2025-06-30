@@ -1353,6 +1353,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FoodManager
       objectReference: {fileID: 0}
+    - target: {fileID: 3731119520356238171, guid: fc6f3d03bd035f948bd2af383f212fc8, type: 3}
+      propertyPath: megaFoodChance
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

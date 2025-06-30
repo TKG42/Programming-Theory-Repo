@@ -1413,6 +1413,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FoodManager
       objectReference: {fileID: 0}
+    - target: {fileID: 3731119520356238171, guid: fc6f3d03bd035f948bd2af383f212fc8, type: 3}
+      propertyPath: megaFoodChance
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1470,6 +1474,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8138168464819278592, guid: ccbc85647f2912f46a5156cef835850a, type: 3}
+      propertyPath: slamExplosionVFX
+      value: 
+      objectReference: {fileID: 7385851278058834521, guid: 8797acc503afc8148800d3406715093c, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

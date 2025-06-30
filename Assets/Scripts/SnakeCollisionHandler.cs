@@ -33,7 +33,13 @@ public class SnakeCollisionHandler : MonoBehaviour
             if (CrackAttackManager.Instance.HasSlamBuff() && other.CompareTag("BreakableObstacle"))
             {
                 CrackAttackManager.Instance.ConsumeSlamCharge();
-                Destroy(other.gameObject); // Add VFX here if needed
+
+                // Explosion VFX
+                VFXManager.Instance?.PlaySlamExplosion(other.transform.position);
+                // Cam shake
+                CameraShake.Instance?.Shake(0.4f, 0.5f);
+
+                Destroy(other.gameObject); 
                 return;
             }
 

@@ -89,7 +89,7 @@ public class CrackAttackManager : MonoBehaviour
 
         FoodLifespan lifespan = spawned.GetComponent<FoodLifespan>();
         if (lifespan != null)
-            lifespan.ResetTimer(15f);   
+            lifespan.ResetTimer(30f);   
     }
 
     private void PlayCrackVFX(Vector3 pos)

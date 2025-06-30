@@ -4,6 +4,9 @@ public class VFXManager : MonoBehaviour
 {
     public static VFXManager Instance;
 
+    [Header("Extra VFX")]
+    public GameObject slamExplosionVFX;
+
     private void Awake()
     {
         if (Instance != null) Destroy(gameObject);
@@ -46,5 +49,11 @@ public class VFXManager : MonoBehaviour
         vfx.localPosition = Vector3.zero;
         vfx.localRotation = Quaternion.identity;
         vfx.gameObject.SetActive(false); // reset if needed
+    }
+
+    public void PlaySlamExplosion(Vector3 position)
+    {
+        if (slamExplosionVFX != null)
+            Instantiate(slamExplosionVFX, position, Quaternion.identity);
     }
 }

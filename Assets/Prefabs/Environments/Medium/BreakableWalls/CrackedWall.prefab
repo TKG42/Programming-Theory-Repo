@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 7215871219409400280}
   - component: {fileID: 3591309309208082539}
   - component: {fileID: 2875882733386885779}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: CrackedWall
-  m_TagString: Obstacle
+  m_TagString: BreakableObstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

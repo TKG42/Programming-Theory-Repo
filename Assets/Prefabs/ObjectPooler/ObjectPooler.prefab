@@ -56,4 +56,4 @@ MonoBehaviour:
     size: 10
   - tag: CrackAttack
     prefab: {fileID: 8573811349847909931, guid: 97d656965bd54f34aa3cff7dc459b066, type: 3}
-    size: 10
+    size: 5
