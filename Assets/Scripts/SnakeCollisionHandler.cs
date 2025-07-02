@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SnakeCollisionHandler : MonoBehaviour
 {
@@ -30,7 +31,7 @@ public class SnakeCollisionHandler : MonoBehaviour
         if (other.gameObject.layer == LayerMask.NameToLayer("Obstacles"))
         {
             // Only the head should break breakables
-            if (CrackAttackManager.Instance.HasSlamBuff() && other.CompareTag("BreakableObstacle"))
+            if (SceneManager.GetActiveScene().name != "Easy" && CrackAttackManager.Instance.HasSlamBuff() && other.CompareTag("BreakableObstacle"))
             {
                 CrackAttackManager.Instance.ConsumeSlamCharge();
 

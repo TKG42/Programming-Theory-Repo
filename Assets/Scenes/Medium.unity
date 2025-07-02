@@ -1355,7 +1355,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3731119520356238171, guid: fc6f3d03bd035f948bd2af383f212fc8, type: 3}
       propertyPath: megaFoodChance
-      value: 5
+      value: 35.8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1732,6 +1732,26 @@ PrefabInstance:
     - target: {fileID: 1482626488615735286, guid: 3ca12cf881a5e8e43a42539176e5706a, type: 3}
       propertyPath: m_Name
       value: MediumEnv
+      objectReference: {fileID: 0}
+    - target: {fileID: 2410049131450718337, guid: 3ca12cf881a5e8e43a42539176e5706a, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4627388068697656681, guid: 3ca12cf881a5e8e43a42539176e5706a, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4938390862358657730, guid: 3ca12cf881a5e8e43a42539176e5706a, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5356422363765959787, guid: 3ca12cf881a5e8e43a42539176e5706a, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6986775948076465060, guid: 3ca12cf881a5e8e43a42539176e5706a, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -43,6 +43,8 @@ public class Floyd : BaseSnake
             bodySegments.Add(newSegment.transform);
 
             segmentSpawnCounter++;
+
+            TryAttachSlamVFXToSegment(newSegment.transform);
         }
 
         segmentCount += count;
