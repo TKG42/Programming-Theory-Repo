@@ -22,6 +22,8 @@ public class CrackAttackManager : MonoBehaviour
     private int currentStacks = 0;
     private BaseSnake currentSnake;
 
+    public int CurrentStacks => currentStacks;
+
     private void Awake()
     {
         if (Instance != null) Destroy(gameObject);
@@ -42,19 +44,27 @@ public class CrackAttackManager : MonoBehaviour
     {      
         currentSnake = snake;
 
+        SlamVFXController vfx = currentSnake.GetComponent<SlamVFXController>();
+
         if (currentStacks < maxStack)
         {
             currentStacks++;
             ScoreManager.Instance.AddPoints(points);
             UpdateUI();
             PlayCrackVFX(snake.transform.position);
+
+            if (currentStacks == 1)
+                vfx?.ActivateSlamVFX(currentStacks); // First activation
+            else
+                vfx?.UpdateSlamVFXScale(currentStacks); // Scaling up
         }
         else
         {
-            // Overstack = instant death + VFX
             PlayCrackVFX(snake.transform.position);
-            snake.Die(); // immediate game over
+            vfx?.DeactivateAll(); // Clean up visual effects on overstack death
+            snake.Die(); // Game over from overstack
         }
+        
     }
 
     public bool HasSlamBuff()
@@ -68,6 +78,13 @@ public class CrackAttackManager : MonoBehaviour
         {
             currentStacks--;
             UpdateUI();
+
+            SlamVFXController vfx = currentSnake?.GetComponent<SlamVFXController>();
+
+            if (currentStacks == 0)
+                vfx?.DeactivateAll();
+            else
+                vfx?.UpdateSlamVFXScale(currentStacks);
         }
     }
 

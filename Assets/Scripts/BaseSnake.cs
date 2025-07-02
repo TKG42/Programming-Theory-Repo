@@ -46,6 +46,13 @@ public abstract class BaseSnake : MonoBehaviour
             SnakeBodySegment segmentScript = newSegment.GetComponent<SnakeBodySegment>();
             segmentScript.target = lastSegment;
             bodySegments.Add(newSegment.transform);
+
+            if (CrackAttackManager.Instance.HasSlamBuff())
+            {
+                var vfx = GetComponent<SlamVFXController>();
+                if (vfx != null)
+                    vfx.AddSegmentVFX(newSegment.transform, CrackAttackManager.Instance.CurrentStacks);
+            }
         }
 
         segmentCount += count;
@@ -110,6 +117,8 @@ public abstract class BaseSnake : MonoBehaviour
 
     public virtual void Die()
     {
+        GetComponent<SlamVFXController>()?.DeactivateAll();
+
         Debug.Log("Snake has died!");
         ExplodeSnake();
         StartCoroutine(HandleDeathDelay());

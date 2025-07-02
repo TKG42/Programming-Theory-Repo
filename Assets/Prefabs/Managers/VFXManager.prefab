@@ -44,3 +44,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9601b650b49f761429e4b440ad7a6172, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slamExplosionVFX: {fileID: 7385851278058834521, guid: 8797acc503afc8148800d3406715093c, type: 3}

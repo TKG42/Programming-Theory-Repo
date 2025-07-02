@@ -13,6 +13,7 @@ TagManager:
   - MegaFood
   - CrackAttack
   - BreakableObstacle
+  - ElectricVFX
   layers:
   - Default
   - TransparentFX
