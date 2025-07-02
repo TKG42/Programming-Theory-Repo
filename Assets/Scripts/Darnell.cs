@@ -97,6 +97,8 @@ public class Darnell : BaseSnake
             bodySegments.Add(newSegment.transform);
 
             segmentSpawnCounter++;
+
+            TryAttachSlamVFXToSegment(newSegment.transform);
         }
 
         segmentCount += count;

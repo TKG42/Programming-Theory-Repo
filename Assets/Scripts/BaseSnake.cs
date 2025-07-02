@@ -202,4 +202,27 @@ public abstract class BaseSnake : MonoBehaviour
         if (GameManager.Instance != null)
             GameManager.Instance.GameOver();
     }
+
+    protected void TryAttachSlamVFXToSegment(Transform newSegment)
+    {
+        var crackMgr = CrackAttackManager.Instance;
+
+        if (crackMgr != null && crackMgr.HasSlamBuff())
+        {
+            var vfx = GetComponent<SlamVFXController>();
+            if (vfx != null)
+            {
+                Debug.Log($"[{name}] Adding VFX to new segment");
+                vfx.AddSegmentVFX(newSegment, crackMgr.CurrentStacks);
+            }
+            else
+            {
+                Debug.LogWarning($"[{name}] SlamVFXController not found on snake");
+            }
+        }
+        else
+        {
+            Debug.Log($"[{name}] No slam buff active — skipping VFX");
+        }
+    }
 }
