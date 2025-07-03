@@ -35,8 +35,6 @@ public class SnakeCollisionHandler : MonoBehaviour
             {
                 CrackAttackManager.Instance.ConsumeSlamCharge();
 
-                snake.GetComponent<SlamVFXController>()?.InterruptAndClearVFX();
-
                 // Explosion VFX
                 VFXManager.Instance?.PlaySlamExplosion(other.transform.position);
                 // Cam shake
@@ -53,6 +51,7 @@ public class SnakeCollisionHandler : MonoBehaviour
             }
 
             Debug.Log("Snake collided with an obstacle!");
+            snake.GetComponent<SlamVFXController>()?.InterruptAndClearVFX();
             snake.Die();
             return;
         }

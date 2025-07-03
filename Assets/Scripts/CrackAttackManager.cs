@@ -84,15 +84,20 @@ public class CrackAttackManager : MonoBehaviour
 
     public void ConsumeSlamCharge()
     {
+        Debug.Log("Consuming slam charge...");
         currentStacks = Mathf.Clamp(currentStacks, 0, maxStack);
+        Debug.Log("Stacks: " + currentStacks);
 
         if (currentStacks > 0)
         {
+            Debug.Log("Decrementing stacks...");
             currentStacks--;
+            Debug.Log("Updated stacks: " + currentStacks);
             UpdateUI();
 
             SlamVFXController vfx = currentSnake?.GetComponent<SlamVFXController>();
 
+            Debug.Log("VFX: " + vfx);
             if (currentStacks == 0)
                 vfx?.InterruptAndClearVFX();
             else

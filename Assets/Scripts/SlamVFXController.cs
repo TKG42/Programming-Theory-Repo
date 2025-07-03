@@ -99,6 +99,7 @@ public class SlamVFXController : MonoBehaviour
 
     public void DowngradeVFXLevel(int newLevel)
     {
+        Debug.Log("Downgrading VFX level to: " + newLevel);
         isActivating = false;
 
         if (vfxCoroutine != null)
@@ -107,7 +108,32 @@ public class SlamVFXController : MonoBehaviour
             vfxCoroutine = null;
         }
 
+        // Ensure all expected segments have VFX applied
+        EnsureFullVFXList(newLevel);
+
+        // Apply new scale
         ApplyScale(newLevel);
+    }
+
+    private void EnsureFullVFXList(int level)
+    {
+        Transform headVFX = ActivateVFXOnTransform(transform);
+        if (headVFX != null && !vfxObjects.Contains(headVFX))
+        {
+            SetScale(headVFX, vfxScales[Mathf.Clamp(level - 1, 0, vfxScales.Length - 1)]);
+            vfxObjects.Add(headVFX);
+        }
+
+        foreach (Transform segment in snake.bodySegments)
+        {
+            if (segment == null) continue;
+            Transform vfx = ActivateVFXOnTransform(segment);
+            if (vfx != null && !vfxObjects.Contains(vfx))
+            {
+                SetScale(vfx, vfxScales[Mathf.Clamp(level - 1, 0, vfxScales.Length - 1)]);
+                vfxObjects.Add(vfx);
+            }
+        }
     }
 
     public void UpdateSlamVFXScale(int level)
@@ -127,6 +153,7 @@ public class SlamVFXController : MonoBehaviour
     private void ApplyScale(int level)
     {
         float scale = vfxScales[Mathf.Clamp(level - 1, 0, vfxScales.Length - 1)];
+        Debug.Log("Applying scale for level " + level + " at scale " + scale);
         foreach (Transform vfx in vfxObjects)
         {
             SetScale(vfx, scale);
@@ -158,6 +185,7 @@ public class SlamVFXController : MonoBehaviour
 
     private void SetScale(Transform vfx, float scale)
     {
+        Debug.Log("Setting scale of " + scale + " to vfx object: " + vfx);
         if (vfx != null)
         {
             vfx.localScale = new Vector3(scale, scale, scale);
