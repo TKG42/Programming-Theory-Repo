@@ -35,6 +35,8 @@ public class SnakeCollisionHandler : MonoBehaviour
             {
                 CrackAttackManager.Instance.ConsumeSlamCharge();
 
+                snake.GetComponent<SlamVFXController>()?.InterruptAndClearVFX();
+
                 // Explosion VFX
                 VFXManager.Instance?.PlaySlamExplosion(other.transform.position);
                 // Cam shake

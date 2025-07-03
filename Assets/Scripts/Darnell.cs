@@ -196,4 +196,13 @@ public class Darnell : BaseSnake
                 kvp.Key.materials = kvp.Value;
         }
     }
+
+    public void ForceDeathByCrackAttack()
+    {
+        hasShield = false; // disable shield manually
+        isTemporarilyInvulnerable = false;
+        UIManager.Instance.ShowShieldIcon(false);
+        Debug.Log("Darnell overridden death by CrackAttack");
+        base.Die();
+    }
 }

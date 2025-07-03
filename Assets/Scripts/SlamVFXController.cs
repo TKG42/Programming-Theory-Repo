@@ -9,6 +9,9 @@ public class SlamVFXController : MonoBehaviour
     private float[] vfxScales = new float[] { 1f, 1.2f, 1.5f };
     private string vfxPoolTag = "ElectricVFX";
 
+    private Coroutine vfxCoroutine = null;
+    private bool isActivating = false;
+
     private void Awake()
     {
         snake = GetComponent<BaseSnake>();
@@ -16,34 +19,55 @@ public class SlamVFXController : MonoBehaviour
 
     public void ActivateSlamVFX(int level)
     {
-        StopAllCoroutines(); // Cancel previous attempts
-        StartCoroutine(ActivateVFXSequence(level));
+        if (vfxCoroutine != null)
+            StopCoroutine(vfxCoroutine);
+
+        isActivating = true;
+        vfxCoroutine = StartCoroutine(ActivateVFXSequence(level));
     }
 
     private IEnumerator ActivateVFXSequence(int level)
     {
         vfxObjects.Clear();
 
-        // Head
         Transform headVFX = ActivateVFXOnTransform(transform);
         if (headVFX != null)
         {
-            vfxObjects.Add(headVFX);
             SetScale(headVFX, vfxScales[level - 1]);
-            yield return new WaitForSeconds(0.1f); // <-- STAGGERED ACTIVATION
+            vfxObjects.Add(headVFX);
+            yield return new WaitForSeconds(0.1f);
         }
 
-        // Body segments
-        foreach (Transform segment in snake.bodySegments)
+        List<Transform> segmentsSnapshot = new List<Transform>(snake.bodySegments);
+        foreach (Transform segment in segmentsSnapshot)
         {
+            if (!isActivating) yield break; // Bail early if interrupted
+
+            if (segment == null) continue;
             Transform vfx = ActivateVFXOnTransform(segment);
             if (vfx != null)
             {
-                vfxObjects.Add(vfx);
                 SetScale(vfx, vfxScales[level - 1]);
-                yield return new WaitForSeconds(0.1f); // <-- STAGGERED ACTIVATION
+                vfxObjects.Add(vfx);
+                yield return new WaitForSeconds(0.1f);
             }
         }
+
+        vfxCoroutine = null;
+        isActivating = false;
+    }
+
+    public void InterruptAndClearVFX()
+    {
+        isActivating = false;
+
+        if (vfxCoroutine != null)
+        {
+            StopCoroutine(vfxCoroutine);
+            vfxCoroutine = null;
+        }
+
+        DeactivateAll();
     }
 
     public void AddSegmentVFX(Transform newSegment, int currentLevel)
@@ -68,8 +92,22 @@ public class SlamVFXController : MonoBehaviour
         {
             vfx.gameObject.SetActive(true); // Ensure VFX is visible
             SetScale(vfx, vfxScales[Mathf.Clamp(currentLevel - 1, 0, vfxScales.Length - 1)]);
-            vfxObjects.Add(vfx);
+            if (!vfxObjects.Contains(vfx))
+                vfxObjects.Add(vfx);
         }
+    }
+
+    public void DowngradeVFXLevel(int newLevel)
+    {
+        isActivating = false;
+
+        if (vfxCoroutine != null)
+        {
+            StopCoroutine(vfxCoroutine);
+            vfxCoroutine = null;
+        }
+
+        ApplyScale(newLevel);
     }
 
     public void UpdateSlamVFXScale(int level)

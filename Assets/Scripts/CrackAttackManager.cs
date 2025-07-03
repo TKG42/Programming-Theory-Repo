@@ -62,7 +62,17 @@ public class CrackAttackManager : MonoBehaviour
         {
             PlayCrackVFX(snake.transform.position);
             vfx?.DeactivateAll(); // Clean up visual effects on overstack death
-            snake.Die(); // Game over from overstack
+
+            // Game over from overstack
+            if (snake is Darnell darnell)
+            {
+                // Bypass shield specifically
+                darnell.ForceDeathByCrackAttack();
+            }
+            else
+            {
+                snake.Die();
+            }
         }
         
     }
@@ -74,6 +84,8 @@ public class CrackAttackManager : MonoBehaviour
 
     public void ConsumeSlamCharge()
     {
+        currentStacks = Mathf.Clamp(currentStacks, 0, maxStack);
+
         if (currentStacks > 0)
         {
             currentStacks--;
@@ -82,9 +94,9 @@ public class CrackAttackManager : MonoBehaviour
             SlamVFXController vfx = currentSnake?.GetComponent<SlamVFXController>();
 
             if (currentStacks == 0)
-                vfx?.DeactivateAll();
+                vfx?.InterruptAndClearVFX();
             else
-                vfx?.UpdateSlamVFXScale(currentStacks);
+                vfx?.DowngradeVFXLevel(currentStacks);
         }
     }
 

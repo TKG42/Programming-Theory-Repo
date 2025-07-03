@@ -117,7 +117,7 @@ public abstract class BaseSnake : MonoBehaviour
 
     public virtual void Die()
     {
-        GetComponent<SlamVFXController>()?.DeactivateAll();
+        GetComponent<SlamVFXController>()?.InterruptAndClearVFX();
 
         Debug.Log("Snake has died!");
         ExplodeSnake();
