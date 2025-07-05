@@ -16,12 +16,12 @@ public class Zach : BaseSnake
 
     private bool isSpeedBoosted = false;
     private float speedBoostTimer = 0f;
-    private float originalSpeed;
+    private float baseSpeedWithoutBoost;
 
     protected override void Start()
     {
         base.Start();
-        originalSpeed = moveSpeed;
+        baseSpeedWithoutBoost = moveSpeed;
     }
 
     private void Update()
@@ -37,12 +37,20 @@ public class Zach : BaseSnake
         {
             speedBoostTimer -= Time.deltaTime;
             if (speedBoostTimer <= 0)
-            {
-                moveSpeed = originalSpeed;
+            {               
                 isSpeedBoosted = false;
+                moveSpeed = baseSpeedWithoutBoost;
                 UIManager.Instance?.ShowSpeedIcon(false);
             }
         }
+    }
+
+    protected override void IncreaseSpeed()
+    {
+        // Modify the base speed and then apply boost again if active
+        baseSpeedWithoutBoost = Mathf.Min(baseSpeedWithoutBoost + speedIncreasePerFood, maxMoveSpeed);
+        moveSpeed = baseSpeedWithoutBoost + (isSpeedBoosted ? speedBoostAmount : 0f);
+        Debug.Log($"[Zach] Speed increased to {moveSpeed} (boosted: {isSpeedBoosted})");
     }
 
     public override void AddSegment(int count = 1)
@@ -96,7 +104,7 @@ public class Zach : BaseSnake
         if (!isSpeedBoosted)
         {
             isSpeedBoosted = true;
-            moveSpeed += speedBoostAmount;
+            IncreaseSpeed();
             UIManager.Instance?.ShowSpeedIcon(true);
         }
 
