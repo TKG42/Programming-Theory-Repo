@@ -64,6 +64,7 @@ public class Darnell : BaseSnake
     {
         hasShield = true;
         UIManager.Instance.ShowShieldIcon(true);
+        IncreaseSpeed();
         Debug.Log("Darnell: Shield activated!");
     }
 
@@ -114,6 +115,7 @@ public class Darnell : BaseSnake
         ScoreManager.Instance.AddPoints(10);
         AddSegment(1);
         UpdateTailScales();
+        IncreaseSpeed();
     }
 
     public override void Die()

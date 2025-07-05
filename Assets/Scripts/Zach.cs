@@ -88,6 +88,7 @@ public class Zach : BaseSnake
         ScoreManager.Instance.AddPoints(10);
         AddSegment(1);
         UpdateTailScales();
+        IncreaseSpeed();
     }
 
     public override void OnEatPowerFood()

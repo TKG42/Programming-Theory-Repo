@@ -8,6 +8,10 @@ public abstract class BaseSnake : MonoBehaviour
     public float moveSpeed = 5f;
     public float turnSpeed = 10f;
 
+    [Header("Speed Settings")]
+    public float speedIncreasePerFood = 0.1f; // Tune as needed
+    public float maxMoveSpeed = 20f; // speed clamp
+
     public GameObject bodySegmentPrefab;
     public Transform bodyRoot;
     public List<Transform> bodySegments = new List<Transform>();
@@ -15,9 +19,12 @@ public abstract class BaseSnake : MonoBehaviour
     [SerializeField] protected Vector3 segmentRotationEuler = new Vector3(0f, 0f, 90f);
 
     protected int segmentCount = 0;
+    private float defaultMoveSpeed;
 
     protected virtual void Start()
     {
+        defaultMoveSpeed = moveSpeed;
+
         // Initial setup (may be overridden)
         if (bodySegments.Count == 0 && bodyRoot != null)
         {
@@ -56,6 +63,12 @@ public abstract class BaseSnake : MonoBehaviour
         }
 
         segmentCount += count;
+    }
+
+    protected virtual void IncreaseSpeed()
+    {
+        moveSpeed = Mathf.Min(moveSpeed + speedIncreasePerFood, maxMoveSpeed);
+        Debug.Log($"[BaseSnake] Speed increased to {moveSpeed}");
     }
 
     protected void UpdateTailScales()
@@ -101,9 +114,13 @@ public abstract class BaseSnake : MonoBehaviour
         ScoreManager.Instance.AddPoints(10);
         AddSegment(1);
         UpdateTailScales();
+        IncreaseSpeed();
     }
 
-    public virtual void OnEatPowerFood() { }
+    public virtual void OnEatPowerFood()
+    {
+        IncreaseSpeed();
+    }
 
     public virtual void OnEatMegaFood()
     {
@@ -111,8 +128,8 @@ public abstract class BaseSnake : MonoBehaviour
         ScoreManager.Instance.ActivateMultiplier(3, 5f); // 3x for 5 seconds
         AddSegment(3);
         UpdateTailScales();
-
         CrackAttackManager.Instance?.RegisterMegaFoodEaten();
+        IncreaseSpeed();
     }
 
     public virtual void Die()
@@ -121,6 +138,7 @@ public abstract class BaseSnake : MonoBehaviour
 
         Debug.Log("Snake has died!");
         ExplodeSnake();
+        moveSpeed = defaultMoveSpeed;
         StartCoroutine(HandleDeathDelay());
     }
 

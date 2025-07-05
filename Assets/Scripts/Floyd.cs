@@ -12,6 +12,7 @@ public class Floyd : BaseSnake
         ScoreManager.Instance.ActivateMultiplier(3, 4f);
         AddSegment(2);
         UpdateTailScales();
+        IncreaseSpeed();
     }
 
     public override void OnEatNormalFood()
