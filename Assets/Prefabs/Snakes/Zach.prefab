@@ -780,6 +780,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 7
   turnSpeed: 10
+  speedIncreasePerFood: 0.1
+  maxMoveSpeed: 20
   bodySegmentPrefab: {fileID: 3113597628062528924, guid: 902ae8914e1b9654c8182c686473a85d, type: 3}
   bodyRoot: {fileID: 1956624309969210719}
   bodySegments:

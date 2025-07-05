@@ -23,6 +23,8 @@ public abstract class BaseSnake : MonoBehaviour
 
     protected virtual void Start()
     {
+        StartCoroutine(DelayedStartMovement());
+
         defaultMoveSpeed = moveSpeed;
 
         // Initial setup (may be overridden)
@@ -36,6 +38,17 @@ public abstract class BaseSnake : MonoBehaviour
         SnakeHeadController head = GetComponent<SnakeHeadController>();
         if (head != null)
             head.snake = this;
+    }
+
+    protected virtual IEnumerator DelayedStartMovement()
+    {
+        SnakeHeadController headController = GetComponent<SnakeHeadController>();
+        if (headController != null)
+        {
+            headController.enabled = false;
+            yield return new WaitForSeconds(0.1f); // Or WaitForFixedUpdate()
+            headController.enabled = true;
+        }
     }
 
     public virtual void AddSegment(int count = 1)
