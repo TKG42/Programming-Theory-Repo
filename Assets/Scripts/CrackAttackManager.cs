@@ -134,9 +134,12 @@ public class CrackAttackManager : MonoBehaviour
 
     private Vector3 GetRandomSpawnPosition()
     {
-        return FoodManager.GetValidSpawnPositionStatic(
+        Vector3 navPos = FoodManager.GetValidSpawnPositionStatic(
             new Vector3(-44f, 0f, -85f),
             new Vector3(44f, 0f, -44f)
         );
+
+        // Raise the Y value by 2 units
+        return new Vector3(navPos.x, navPos.y + 2f, navPos.z);
     }
 }
