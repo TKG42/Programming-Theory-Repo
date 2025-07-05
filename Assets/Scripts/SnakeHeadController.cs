@@ -33,7 +33,8 @@ public class SnakeHeadController : MonoBehaviour
             if (direction != Vector3.zero)
             {
                 Quaternion targetRotation = Quaternion.LookRotation(direction);
-                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, turnSpeed * Time.deltaTime);
+                float maxHeadTurn = turnSpeed * 360f * Time.deltaTime;
+                transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, maxHeadTurn);
             }
         }
     }

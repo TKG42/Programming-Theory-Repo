@@ -56,7 +56,8 @@ public class SnakeBodySegment : MonoBehaviour
             transform.position = Vector3.MoveTowards(transform.position, targetPosition, dynamicSpeed * Time.deltaTime);
 
             Quaternion targetRotation = Quaternion.LookRotation(toTarget);
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, followSpeed * Time.deltaTime);
+            float maxTurnAngle = followSpeed * 360f * Time.deltaTime; // Dynamically scale with speed. 540f for tighter turns
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, maxTurnAngle);
         }
     }
 
