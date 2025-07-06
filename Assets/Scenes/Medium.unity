@@ -1445,7 +1445,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3731119520356238171, guid: fc6f3d03bd035f948bd2af383f212fc8, type: 3}
       propertyPath: megaFoodChance
-      value: 35.8
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3731119520356238171, guid: fc6f3d03bd035f948bd2af383f212fc8, type: 3}
+      propertyPath: powerFoodChance
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 3731119520356238171, guid: fc6f3d03bd035f948bd2af383f212fc8, type: 3}
+      propertyPath: normalFoodChance
+      value: 60
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

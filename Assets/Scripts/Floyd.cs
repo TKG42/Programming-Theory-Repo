@@ -10,6 +10,7 @@ public class Floyd : BaseSnake
     public override void OnEatPowerFood()
     {
         ScoreManager.Instance.ActivateMultiplier(3, 4f);
+        ScoreManager.Instance.AddPoints(50);
         AddSegment(2);
         UpdateTailScales();
         IncreaseSpeed();

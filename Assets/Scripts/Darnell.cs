@@ -62,6 +62,7 @@ public class Darnell : BaseSnake
 
     public override void OnEatPowerFood()
     {
+        ScoreManager.Instance.AddPoints(50);
         hasShield = true;
         UIManager.Instance.ShowShieldIcon(true);
         IncreaseSpeed();

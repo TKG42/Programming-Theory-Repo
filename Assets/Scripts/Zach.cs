@@ -108,6 +108,8 @@ public class Zach : BaseSnake
             UIManager.Instance?.ShowSpeedIcon(true);
         }
 
+        ScoreManager.Instance.AddPoints(50);
+
         speedBoostTimer = speedBoostDuration; // resets or extends the timer
         Debug.Log("Zach: Speed boost timer extended or activated!");
     }
