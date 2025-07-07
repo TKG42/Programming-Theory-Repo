@@ -4402,6 +4402,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1510820253}
   - component: {fileID: 1510820254}
+  - component: {fileID: 1510820255}
   m_Layer: 0
   m_Name: UI
   m_TagString: Untagged
@@ -4442,6 +4443,18 @@ MonoBehaviour:
   titleScreenCanvas: {fileID: 421450547}
   howToPlayCanvas: {fileID: 428715085}
   highScoreCanvas: {fileID: 1930091359}
+--- !u!114 &1510820255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1510820252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 960610c7ccd86fb41b8a415b3f23b2e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1564728437
 GameObject:
   m_ObjectHideFlags: 0
@@ -5258,8 +5271,9 @@ GameObject:
   - component: {fileID: 1930091363}
   - component: {fileID: 1930091362}
   - component: {fileID: 1930091361}
+  - component: {fileID: 1930091366}
   m_Layer: 0
-  m_Name: HighScoreScreen
+  m_Name: HighScoreUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5386,6 +5400,21 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &1930091366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1930091359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5eb6dbcdaa3dabd4f9af0e7f690e7fb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  easyText: {fileID: 155720968}
+  mediumText: {fileID: 343050346}
+  hardText: {fileID: 1074094948}
 --- !u!1 &1948315550
 GameObject:
   m_ObjectHideFlags: 0

@@ -26,8 +26,20 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        Time.timeScale = 0f;
-        gameOverUI.SetActive(true);
+        int finalScore = ScoreManager.Instance.GetScore();
+        var diff = (HighScoreManager.Difficulty)GameSessionData.Instance.selectedDifficulty;
+
+        if (HighScoreManager.Instance.IsHighScore(finalScore, diff))
+        {
+            Debug.Log("High score detected!");
+            NewHighScoreUI.Instance.Show(finalScore, diff);
+        }
+        else
+        {
+            Debug.Log("No high score. LOSER!");
+            Time.timeScale = 0f;
+            gameOverUI.SetActive(true);
+        }
     }
 
     public void RestartLevel()
