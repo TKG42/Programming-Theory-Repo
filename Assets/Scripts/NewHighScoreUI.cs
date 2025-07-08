@@ -21,9 +21,8 @@ public class NewHighScoreUI : MonoBehaviour
 
     public void SubmitScore()
     {
-        string name = nameInput.text.Trim();
-        if (string.IsNullOrEmpty(name)) name = "Snake";
-        if (name.Length > 12) name = name.Substring(0, 12);
+        string rawInput = nameInput.text;
+        string name = ProfanityFilter.Sanitize(rawInput);
 
         HighScoreManager.Instance.AddScore(pendingScore, name, pendingDiff);
         panel.SetActive(false);
