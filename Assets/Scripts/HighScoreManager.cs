@@ -11,10 +11,13 @@ public class HighScoreManager : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance != null) Destroy(gameObject);
-        else Instance = this;
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
     }
-
     public enum Difficulty { Easy, Medium, Hard }
 
     private string GetKey(Difficulty diff) => keys[(int)diff];

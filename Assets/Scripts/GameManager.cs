@@ -5,6 +5,9 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
+    [Header("UI References")]
+    public NewHighScoreUI newHighScoreUI; 
+
     public BaseSnake currentSnake;
     public GameObject gameOverUI;
     public GameObject pauseUI;
@@ -31,8 +34,16 @@ public class GameManager : MonoBehaviour
 
         if (HighScoreManager.Instance.IsHighScore(finalScore, diff))
         {
-            Debug.Log("High score detected!");
-            NewHighScoreUI.Instance.Show(finalScore, diff);
+            if (newHighScoreUI != null)
+            {
+                newHighScoreUI.Show(finalScore, diff);
+            }
+            else
+            {
+                Debug.LogError("[GameManager] newHighScoreUI is not assigned — check inspector!");
+                Time.timeScale = 0f;
+                gameOverUI.SetActive(true);
+            }
         }
         else
         {

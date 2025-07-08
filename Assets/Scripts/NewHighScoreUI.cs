@@ -3,8 +3,6 @@ using TMPro;
 
 public class NewHighScoreUI : MonoBehaviour
 {
-    public static NewHighScoreUI Instance;
-
     [Header("UI References")]
     public GameObject panel;
     public TMP_InputField nameInput;
@@ -12,11 +10,6 @@ public class NewHighScoreUI : MonoBehaviour
 
     private int pendingScore;
     private HighScoreManager.Difficulty pendingDiff;
-
-    private void Awake()
-    {
-            Instance = this;
-    }
 
     public void Show(int score, HighScoreManager.Difficulty difficulty)
     {
