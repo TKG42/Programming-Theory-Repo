@@ -25,9 +25,27 @@ public class HighScoreDisplay : MonoBehaviour
     {
         StringBuilder sb = new StringBuilder();
         sb.AppendLine(header);
-        foreach (var e in scores)
+        sb.AppendLine(); // <- Add space between header and scores
+
+        if (scores.Count == 0)
         {
-            sb.AppendLine($"{e.playerName} - {e.score}");
+            sb.AppendLine("—");
+            sb.AppendLine("—");
+            sb.AppendLine("—");
+        }
+        else
+        {
+            foreach (var e in scores)
+            {
+                string name = string.IsNullOrEmpty(e.playerName) ? "-" : e.playerName;
+                sb.AppendLine($"{name} - {e.score}");
+            }
+
+            // Fill remaining with dashes if fewer than 3 scores
+            for (int i = scores.Count; i < 3; i++)
+            {
+                sb.AppendLine("—");
+            }
         }
         return sb.ToString();
     }

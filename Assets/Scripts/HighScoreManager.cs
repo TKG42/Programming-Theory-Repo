@@ -51,4 +51,15 @@ public class HighScoreManager : MonoBehaviour
         scores = scores.OrderByDescending(e => e.score).Take(maxEntries).ToList();
         SaveScores(diff, scores);
     }
+
+    // For Testing 
+    public void ResetAllScores()
+    {
+        foreach (Difficulty diff in System.Enum.GetValues(typeof(Difficulty)))
+        {
+            PlayerPrefs.DeleteKey(GetKey(diff));
+        }
+        PlayerPrefs.Save();
+        Debug.Log("[HighScoreManager] All high score data cleared.");
+    }
 }
