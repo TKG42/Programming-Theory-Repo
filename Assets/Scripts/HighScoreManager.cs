@@ -52,7 +52,7 @@ public class HighScoreManager : MonoBehaviour
         SaveScores(diff, scores);
     }
 
-    // For Testing 
+    // For Testing, used by dev buttons OnClick() in TitleScene. Remove button for prod. 
     public void ResetAllScores()
     {
         foreach (Difficulty diff in System.Enum.GetValues(typeof(Difficulty)))

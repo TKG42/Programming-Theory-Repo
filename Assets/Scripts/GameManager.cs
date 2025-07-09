@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public GameObject gameOverUI;
     public GameObject pauseUI;
     private bool isPaused = false;
+    private bool isHighScoreUIUp = false;
 
     private void Awake()
     {
@@ -21,7 +22,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && !isHighScoreUIUp)
         {
             TogglePause();
         }
@@ -32,11 +33,20 @@ public class GameManager : MonoBehaviour
         int finalScore = ScoreManager.Instance.GetScore();
         var diff = (HighScoreManager.Difficulty)GameSessionData.Instance.selectedDifficulty;
 
+        if (finalScore <= 0)
+        {
+            Debug.Log("No score — skipping high score UI.");
+            Time.timeScale = 0f;
+            gameOverUI.SetActive(true);
+            return;
+        }
+
         if (HighScoreManager.Instance.IsHighScore(finalScore, diff))
         {
             if (newHighScoreUI != null)
             {
                 newHighScoreUI.Show(finalScore, diff);
+                isHighScoreUIUp = true;
             }
             else
             {
@@ -47,7 +57,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("No high score. LOSER!");
+            Debug.Log("No high score.");
             Time.timeScale = 0f;
             gameOverUI.SetActive(true);
         }
