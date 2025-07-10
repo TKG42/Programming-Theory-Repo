@@ -11,6 +11,7 @@ public class Floyd : BaseSnake
     {
         ScoreManager.Instance.ActivateMultiplier(3, 4f);
         ScoreManager.Instance.AddPoints(50);
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.eatSFX);
         AddSegment(2);
         UpdateTailScales();
         IncreaseSpeed();

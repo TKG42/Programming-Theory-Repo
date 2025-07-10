@@ -125,6 +125,7 @@ public abstract class BaseSnake : MonoBehaviour
     public virtual void OnEatNormalFood()
     {
         ScoreManager.Instance.AddPoints(10);
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.eatSFX);
         AddSegment(1);
         UpdateTailScales();
         IncreaseSpeed();
@@ -132,6 +133,7 @@ public abstract class BaseSnake : MonoBehaviour
 
     public virtual void OnEatPowerFood()
     {
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.eatSFX);
         IncreaseSpeed();
     }
 
@@ -139,6 +141,7 @@ public abstract class BaseSnake : MonoBehaviour
     {
         ScoreManager.Instance.AddPoints(100);
         ScoreManager.Instance.ActivateMultiplier(3, 5f); // 3x for 5 seconds
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.eatSFX);
         AddSegment(3);
         UpdateTailScales();
         CrackAttackManager.Instance?.RegisterMegaFoodEaten();

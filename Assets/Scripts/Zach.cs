@@ -94,6 +94,7 @@ public class Zach : BaseSnake
         inCombo = true;
         comboTimer = comboDuration;
         ScoreManager.Instance.AddPoints(10);
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.eatSFX);
         AddSegment(1);
         UpdateTailScales();
         IncreaseSpeed();
@@ -108,6 +109,7 @@ public class Zach : BaseSnake
             UIManager.Instance?.ShowSpeedIcon(true);
         }
 
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.eatSFX);
         ScoreManager.Instance.AddPoints(50);
 
         speedBoostTimer = speedBoostDuration; // resets or extends the timer

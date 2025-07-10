@@ -63,6 +63,7 @@ public class Darnell : BaseSnake
     public override void OnEatPowerFood()
     {
         ScoreManager.Instance.AddPoints(50);
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.eatSFX);
         hasShield = true;
         UIManager.Instance.ShowShieldIcon(true);
         IncreaseSpeed();
@@ -114,6 +115,7 @@ public class Darnell : BaseSnake
             ScoreManager.Instance.ActivateMultiplier(2, 4f);
         }
         ScoreManager.Instance.AddPoints(10);
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.eatSFX);
         AddSegment(1);
         UpdateTailScales();
         IncreaseSpeed();
