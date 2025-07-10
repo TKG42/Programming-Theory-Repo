@@ -62,6 +62,11 @@ public class Darnell : BaseSnake
 
     public override void OnEatPowerFood()
     {
+        if (!hasShield)
+        {
+            AudioManager.Instance.PlaySFX(AudioManager.Instance.metalSFX);
+        }
+
         ScoreManager.Instance.AddPoints(50);
         AudioManager.Instance.PlaySFX(AudioManager.Instance.eatSFX);
         hasShield = true;
@@ -114,6 +119,7 @@ public class Darnell : BaseSnake
         {
             ScoreManager.Instance.ActivateMultiplier(2, 4f);
         }
+
         ScoreManager.Instance.AddPoints(10);
         AudioManager.Instance.PlaySFX(AudioManager.Instance.eatSFX);
         AddSegment(1);
@@ -144,6 +150,9 @@ public class Darnell : BaseSnake
         hasShield = false;
         UIManager.Instance.ShowShieldIcon(false);
         Debug.Log("Darnell's shield was consumed!");
+
+        // metalSlamSFX
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.metalSlamSFX);
 
         // Trigger camera shake
         CameraShake.Instance?.Shake(0.25f, 0.4f); // duration, intensity

@@ -358,20 +358,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicSource: {fileID: 145608671}
   titleTheme: {fileID: 8300000, guid: 10ea0c6ecdfbe594d85161c221bce875, type: 3}
-  easyTheme: {fileID: 8300000, guid: 1daf7ddc1b3698b41947dcfa7e554a72, type: 3}
-  mediumTheme: {fileID: 8300000, guid: ff9e593153760e9429268ed6da3fd200, type: 3}
+  easyTheme: {fileID: 8300000, guid: e01741322cd4d7749ad03809f3568261, type: 3}
+  mediumTheme: {fileID: 8300000, guid: c5b5408871cd8c24083b920d97249b61, type: 3}
   hardTheme: {fileID: 8300000, guid: dcc9906755391cf4789636de471fa1f4, type: 3}
   sfxSource: {fileID: 1482347691}
-  eatSFX: {fileID: 8300000, guid: 8ea501de354bd1946befa858fbb11552, type: 3}
-  deathSFX: {fileID: 0}
-  wallBreakSFX: {fileID: 8300000, guid: 84f2d4219edf6954b9adb06209939188, type: 3}
-  wallSplatSFX: {fileID: 0}
+  eatSFX: {fileID: 8300000, guid: a3590992e81ef3b49be788a54d3cfd62, type: 3}
+  deathSFX: {fileID: 8300000, guid: 5cf05efe49c33294682bf7f7bfce2180, type: 3}
+  wallBreakSFX: {fileID: 8300000, guid: 86c00e2df653258448d889e8213e8239, type: 3}
+  wallSplatSFX: {fileID: 8300000, guid: 7195ce9628e2e4149b60a532dd8c19d2, type: 3}
   hissSFX: {fileID: 0}
-  electricSFX: {fileID: 0}
-  zapSFX: {fileID: 0}
-  metalSFX: {fileID: 0}
-  metalSlamSFX: {fileID: 0}
-  clickSFX: {fileID: 0}
+  electricSFX: {fileID: 8300000, guid: f7077c85e02a95f4cae653869eeb5288, type: 3}
+  zapSFX: {fileID: 8300000, guid: 8698ceaff6200684ba7f37532ab339c3, type: 3}
+  metalSFX: {fileID: 8300000, guid: 0a81b7a3053e7be4489c2aa9b529fba1, type: 3}
+  metalSlamSFX: {fileID: 8300000, guid: 297de83609469d84a85a0b6c20100883, type: 3}
+  clickSFX: {fileID: 8300000, guid: efcda2241f08b554a9015ff3d6a9106a, type: 3}
   multiplierSFX: {fileID: 0}
 --- !u!4 &59209784
 Transform:
@@ -647,7 +647,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.5
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 1
   Mute: 0

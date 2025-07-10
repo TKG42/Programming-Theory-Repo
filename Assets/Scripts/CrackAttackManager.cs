@@ -52,6 +52,7 @@ public class CrackAttackManager : MonoBehaviour
             ScoreManager.Instance.AddPoints(points);
             UpdateUI();
             PlayCrackVFX(snake.transform.position);
+            AudioManager.Instance.PlaySFX(AudioManager.Instance.electricSFX);
 
             if (currentStacks == 1)
                 vfx?.ActivateSlamVFX(currentStacks); // First activation

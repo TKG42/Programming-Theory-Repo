@@ -104,6 +104,9 @@ public class Zach : BaseSnake
     {
         if (!isSpeedBoosted)
         {
+            // zapSFX
+            AudioManager.Instance.PlaySFX(AudioManager.Instance.zapSFX);
+
             isSpeedBoosted = true;
             IncreaseSpeed();
             UIManager.Instance?.ShowSpeedIcon(true);

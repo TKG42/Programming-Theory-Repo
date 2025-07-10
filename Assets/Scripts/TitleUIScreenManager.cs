@@ -14,6 +14,8 @@ public class TitleUIScreenManager : MonoBehaviour
 
     public void ShowTitleScreen()
     {
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.clickSFX);
+
         titleScreenCanvas.SetActive(true);
         howToPlayCanvas.SetActive(false);
         highScoreCanvas.SetActive(false);
@@ -21,6 +23,8 @@ public class TitleUIScreenManager : MonoBehaviour
 
     public void ShowHowToPlay()
     {
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.clickSFX);
+
         titleScreenCanvas.SetActive(false);
         howToPlayCanvas.SetActive(true);
         highScoreCanvas.SetActive(false);
@@ -28,6 +32,8 @@ public class TitleUIScreenManager : MonoBehaviour
 
     public void ShowHighScores()
     {
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.clickSFX);
+
         titleScreenCanvas.SetActive(false);
         howToPlayCanvas.SetActive(false);
         highScoreCanvas.SetActive(true);

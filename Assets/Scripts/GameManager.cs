@@ -71,6 +71,8 @@ public class GameManager : MonoBehaviour
 
     public void ReturnToMainMenu()
     {
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.clickSFX);
+
         Time.timeScale = 1f;
         SceneManager.LoadScene("TitleScreen");
     }

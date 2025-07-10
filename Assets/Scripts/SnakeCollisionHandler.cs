@@ -54,7 +54,14 @@ public class SnakeCollisionHandler : MonoBehaviour
             }
 
             Debug.Log("Snake collided with an obstacle!");
+
+            // Clear all VFX
             snake.GetComponent<SlamVFXController>()?.InterruptAndClearVFX();
+
+            // play SFX
+            AudioManager.Instance.PlaySFX(AudioManager.Instance.deathSFX);
+            AudioManager.Instance.PlaySFX(AudioManager.Instance.wallSplatSFX);
+
             snake.Die();
             return;
         }
@@ -62,7 +69,7 @@ public class SnakeCollisionHandler : MonoBehaviour
         // Colliding with own body - always fatal
         if (CompareTag("SnakeHead") && other.CompareTag("SnakeSegment"))
         {
-            Debug.Log("Snake collided with itself!");
+            Debug.Log("Snake collided with itself!");           
             snake.Die();
         }
     }
