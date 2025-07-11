@@ -15,9 +15,7 @@ public class SnakeSelector : MonoBehaviour
         if (GameSessionData.Instance == null) return;
 
         GameSessionData.Instance.selectedSnake = chosenSnake;
-        GameSessionData.Instance.selectedDifficulty = (GameSessionData.Difficulty)difficultyDropdown.value;
-
-        AudioManager.Instance.PlaySFX(AudioManager.Instance.clickSFX);
+        GameSessionData.Instance.selectedDifficulty = (GameSessionData.Difficulty)difficultyDropdown.value;     
 
         string sceneToLoad = GameSessionData.Instance.selectedDifficulty.ToString();
         SceneManager.LoadScene(sceneToLoad); // Will be "Easy", "Medium", or "Hard"

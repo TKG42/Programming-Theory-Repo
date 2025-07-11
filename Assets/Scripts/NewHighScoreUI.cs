@@ -27,5 +27,6 @@ public class NewHighScoreUI : MonoBehaviour
         HighScoreManager.Instance.AddScore(pendingScore, name, pendingDiff);
         panel.SetActive(false);
         gameOverPanel.SetActive(true);
+        AudioManager.Instance?.PlayRecordScratch();
     }
 }

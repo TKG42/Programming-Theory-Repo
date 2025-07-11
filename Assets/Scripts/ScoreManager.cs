@@ -24,6 +24,7 @@ public class ScoreManager : MonoBehaviour
             if (multiplierTimer <= 0)
             {
                 bonusMultiplier = 0;
+                AudioManager.Instance?.ResetMultiplierCycle();
                 UpdateUI();
             }
         }
@@ -38,8 +39,32 @@ public class ScoreManager : MonoBehaviour
 
     public void ActivateMultiplier(int value, float duration)
     {
+        int prevTotal = currentMultiplier + bonusMultiplier;
+        bool wasInactive = bonusMultiplier <= 0;
+
         bonusMultiplier += value;
         multiplierTimer = duration;
+
+        int newTotal = currentMultiplier + bonusMultiplier;
+
+        if (!AudioManager.Instance) return;
+
+        // Only play once per cycle
+        if (!AudioManager.Instance.HasPlayedMultiplierThisCycle())
+        {
+            if (newTotal >= 4)
+            {
+                // Play Level2 only if we just reached 5x
+                if (prevTotal < 5)
+                    AudioManager.Instance.TryPlayMultiplierSFX(5);
+            }
+            else if (wasInactive)
+            {
+                // Otherwise play Level1 for new 2x or 3x
+                AudioManager.Instance.TryPlayMultiplierSFX(newTotal);
+            }
+        }
+
         UpdateUI();
     }
 

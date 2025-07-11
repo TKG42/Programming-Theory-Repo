@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class GameManager : MonoBehaviour
 {
@@ -38,6 +39,7 @@ public class GameManager : MonoBehaviour
             Debug.Log("No score — skipping high score UI.");
             Time.timeScale = 0f;
             gameOverUI.SetActive(true);
+            AudioManager.Instance?.PlayRecordScratch();
             return;
         }
 
@@ -60,19 +62,28 @@ public class GameManager : MonoBehaviour
             Debug.Log("No high score.");
             Time.timeScale = 0f;
             gameOverUI.SetActive(true);
+            AudioManager.Instance?.PlayRecordScratch();
         }
     }
 
     public void RestartLevel()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        StartCoroutine(RestartAndPlayMusic());
+    }
+
+    private IEnumerator RestartAndPlayMusic()
+    {
+        string sceneName = SceneManager.GetActiveScene().name;
+        SceneManager.LoadScene(sceneName);
+
+        yield return null; // wait one frame
+
+        AudioManager.Instance?.PlayMusicForScene(sceneName);
     }
 
     public void ReturnToMainMenu()
     {
-        AudioManager.Instance.PlaySFX(AudioManager.Instance.clickSFX);
-
         Time.timeScale = 1f;
         SceneManager.LoadScene("TitleScreen");
     }

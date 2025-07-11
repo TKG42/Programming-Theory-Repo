@@ -148,13 +148,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1521749205}
     m_Modifications:
+    - target: {fileID: 3420203268519726786, guid: 384e96f999599514cb7499e8d699ac07, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 83962399}
     - target: {fileID: 6108159479118757828, guid: 384e96f999599514cb7499e8d699ac07, type: 3}
       propertyPath: m_Name
       value: HighScoreCanvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 6108159479118757828, guid: 384e96f999599514cb7499e8d699ac07, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7875891071463386396, guid: 384e96f999599514cb7499e8d699ac07, type: 3}
       propertyPath: gameOverPanel
@@ -261,6 +261,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2355146617ded1b40851f9967377f1a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &83962398
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 83962400}
+  - component: {fileID: 83962399}
+  m_Layer: 0
+  m_Name: UIAudioHelper
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &83962399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 83962398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaf3a4a48afbbcb49b5e3e162ddee45e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &83962400
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 83962398}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 354.90662, y: 181.45813, z: 594.4362}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &115484527 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2227735144228574430, guid: 0fdb57105697a2245a2ace7bbe996902, type: 3}
@@ -1350,6 +1394,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1524176155}
+    - target: {fileID: 3307245072550552505, guid: 2aed7e19a977c3f4da8b9427b5517917, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 83962399}
     - target: {fileID: 8590213254089600994, guid: 2aed7e19a977c3f4da8b9427b5517917, type: 3}
       propertyPath: m_Name
       value: PauseCanvas
@@ -1432,10 +1480,6 @@ PrefabInstance:
     - target: {fileID: 1388972361263588163, guid: 627e29ee974d0f74c96789c70cf21c61, type: 3}
       propertyPath: m_Name
       value: GameOverCanvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 1388972361263588163, guid: 627e29ee974d0f74c96789c70cf21c61, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3715836923361668767, guid: 627e29ee974d0f74c96789c70cf21c61, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1525,6 +1569,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1524176155}
+    - target: {fileID: 8847931906065230543, guid: 627e29ee974d0f74c96789c70cf21c61, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 83962399}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1584,15 +1632,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3731119520356238171, guid: fc6f3d03bd035f948bd2af383f212fc8, type: 3}
       propertyPath: megaFoodChance
-      value: 20
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 3731119520356238171, guid: fc6f3d03bd035f948bd2af383f212fc8, type: 3}
       propertyPath: powerFoodChance
-      value: 30
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 3731119520356238171, guid: fc6f3d03bd035f948bd2af383f212fc8, type: 3}
       propertyPath: normalFoodChance
-      value: 70
+      value: 65
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2022,3 +2070,4 @@ SceneRoots:
   - {fileID: 1252415965}
   - {fileID: 553798497}
   - {fileID: 6676614125991182363}
+  - {fileID: 83962400}

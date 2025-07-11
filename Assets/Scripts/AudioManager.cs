@@ -24,7 +24,10 @@ public class AudioManager : MonoBehaviour
     public AudioClip metalSFX;
     public AudioClip metalSlamSFX;
     public AudioClip clickSFX;
-    public AudioClip multiplierSFX;
+    public AudioClip multiplierSFX_Level1; // For 2x and 3x
+    public AudioClip multiplierSFX_Level2; // For 5x
+    public AudioClip recordScratchSFX;
+
 
     private bool hasPlayedMultiplierThisCycle = false;
 
@@ -38,12 +41,14 @@ public class AudioManager : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        PlayMusicForScene(scene.name);
         hasPlayedMultiplierThisCycle = false;
+        PlayMusicForScene(scene.name);    
     }
 
     public void PlayMusicForScene(string sceneName)
     {
+        Debug.Log($"[AudioManager] Attempting to play music for: {sceneName}");
+
         AudioClip clip = sceneName switch
         {
             "TitleScreen" => titleTheme,
@@ -53,12 +58,44 @@ public class AudioManager : MonoBehaviour
             _ => null
         };
 
-        if (clip != null && musicSource.clip != clip)
+        if (clip == null)
         {
+            Debug.LogWarning($"[AudioManager] No music clip found for scene: {sceneName}");
+            return;
+        }
+
+        if (musicSource.clip != clip)
+        {
+            Debug.Log($"[AudioManager] Stopping current music and assigning new clip: {clip.name}");
             musicSource.Stop();
             musicSource.clip = clip;
             musicSource.loop = true;
             musicSource.Play();
+        }
+        else if (!musicSource.isPlaying)
+        {
+            Debug.Log($"[AudioManager] Clip assigned but not playing — forcing playback: {clip.name}");
+            musicSource.Play();
+        }
+        else
+        {
+            Debug.Log($"[AudioManager] Clip already playing: {clip.name}");
+        }
+    }
+
+    public void PlayRecordScratch()
+    {
+        if (musicSource != null && recordScratchSFX != null)
+        {
+            musicSource.Stop();
+
+            AudioClip oldClip = musicSource.clip;
+            musicSource.clip = null; // Clear clip so PlayMusicForScene will retrigger properly
+
+            musicSource.PlayOneShot(recordScratchSFX);
+
+            // Optional: Log it
+            Debug.Log($"[AudioManager] Playing record scratch and clearing music clip (was: {oldClip?.name})");
         }
     }
 
@@ -68,17 +105,29 @@ public class AudioManager : MonoBehaviour
             sfxSource.PlayOneShot(clip);
     }
 
-    public void TryPlayMultiplierSFX()
+    public void TryPlayMultiplierSFX(int level)
     {
-        if (!hasPlayedMultiplierThisCycle)
+        if (hasPlayedMultiplierThisCycle) return;
+
+        switch (level)
         {
-            PlaySFX(multiplierSFX);
-            hasPlayedMultiplierThisCycle = true;
+            case 5:
+                PlaySFX(multiplierSFX_Level2);
+                break;
+            case 2:
+            case 3:
+            default:
+                PlaySFX(multiplierSFX_Level1);
+                break;
         }
+
+        hasPlayedMultiplierThisCycle = true;
     }
 
     public void ResetMultiplierCycle()
     {
         hasPlayedMultiplierThisCycle = false;
     }
+
+    public bool HasPlayedMultiplierThisCycle() => hasPlayedMultiplierThisCycle;
 }
