@@ -17,8 +17,8 @@ public class Darnell : BaseSnake
     private Dictionary<Renderer, Material[]> originalMaterials = new Dictionary<Renderer, Material[]>();
 
     private int segmentSpawnCounter = 0;
-    private bool hasShield = false;
-    private bool isTemporarilyInvulnerable = false;
+    public bool hasShield = false;
+    public bool isTemporarilyInvulnerable = false;
 
     private float postShieldInvulnerabilityDuration = 2f;
 
@@ -216,6 +216,10 @@ public class Darnell : BaseSnake
         hasShield = false; // disable shield manually
         isTemporarilyInvulnerable = false;
         UIManager.Instance.ShowShieldIcon(false);
+
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.deathSFX);
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.wallSplatSFX);
+
         Debug.Log("Darnell overridden death by CrackAttack");
         base.Die();
     }

@@ -7,14 +7,13 @@ public class SnakeCollisionHandler : MonoBehaviour
 
     private void Start()
     {
-        // If we’re on the head or any object that has a BaseSnake directly       
-        snake = GameObject.FindGameObjectWithTag("SnakeHead").GetComponent<BaseSnake>();
+        // Identify snake from head or segment
+        snake = GameObject.FindGameObjectWithTag("SnakeHead")?.GetComponent<BaseSnake>();
 
-        // If we’re on a segment, trace from the segment script
         if (snake == null)
         {
             SnakeBodySegment segment = GetComponentInParent<SnakeBodySegment>();
-            if (segment != null && segment.target != null)
+            if (segment?.target != null)
             {
                 snake = segment.target.GetComponentInParent<BaseSnake>();
             }
@@ -27,50 +26,82 @@ public class SnakeCollisionHandler : MonoBehaviour
     {
         if (snake == null || GameManager.Instance == null) return;
 
-        // Colliding with a wall or obstacle
-        if (other.gameObject.layer == LayerMask.NameToLayer("Obstacles"))
+        bool isObstacleLayer = other.gameObject.layer == LayerMask.NameToLayer("Obstacles");
+        bool isBreakable = other.CompareTag("BreakableObstacle");
+        bool isSnakeSegment = other.CompareTag("SnakeSegment");
+
+        bool isOuterWall = isObstacleLayer && !isBreakable;
+        bool isBreakableWall = isObstacleLayer && isBreakable;
+
+        // 1. Outer wall — instant death
+        if (isOuterWall)
         {
-            // Only the head should break breakables
-            if (SceneManager.GetActiveScene().name != "Easy" && CrackAttackManager.Instance.HasSlamBuff() && other.CompareTag("BreakableObstacle"))
-            {
-                CrackAttackManager.Instance.ConsumeSlamCharge();
-
-                // wallBreakSFX
-                AudioManager.Instance.PlaySFX(AudioManager.Instance.wallBreakSFX);
-
-                // Explosion VFX
-                VFXManager.Instance?.PlaySlamExplosion(other.transform.position);
-                // Cam shake
-                CameraShake.Instance?.Shake(0.4f, 0.5f);
-
-                Destroy(other.gameObject); 
-                return;
-            }
-
-            if (snake is Darnell darnell && darnell.HasShield())
-            {
-                darnell.ConsumeShield();
-                return; // Prevent death
-            }
-
-            Debug.Log("Snake collided with an obstacle!");
-
-            // Clear all VFX
-            snake.GetComponent<SlamVFXController>()?.InterruptAndClearVFX();
-
-            // play SFX
-            AudioManager.Instance.PlaySFX(AudioManager.Instance.deathSFX);
-            AudioManager.Instance.PlaySFX(AudioManager.Instance.wallSplatSFX);
-
-            snake.Die();
+            Debug.Log("Snake collided with outer wall!");
+            ForceKill(snake);
             return;
         }
 
-        // Colliding with own body - always fatal
-        if (CompareTag("SnakeHead") && other.CompareTag("SnakeSegment"))
+        // 2. Breakable wall
+        if (isBreakableWall)
         {
-            Debug.Log("Snake collided with itself!");           
-            snake.Die();
+            // Break with slam
+            if (SceneManager.GetActiveScene().name != "Easy" &&
+                CrackAttackManager.Instance.HasSlamBuff())
+            {
+                CrackAttackManager.Instance.ConsumeSlamCharge();
+                AudioManager.Instance.PlaySFX(AudioManager.Instance.wallBreakSFX);
+                VFXManager.Instance?.PlaySlamExplosion(other.transform.position);
+                CameraShake.Instance?.Shake(0.4f, 0.5f);
+                Destroy(other.gameObject);
+                return;
+            }
+
+            // Darnell shield logic
+            if (snake is Darnell darnell)
+            {
+                if (darnell.HasShield())
+                {
+                    darnell.ConsumeShield();
+                    return;
+                }
+
+                if (darnell.isTemporarilyInvulnerable)
+                {
+                    return;
+                }
+            }
+
+            Debug.Log("Snake collided with breakable wall — no slam or shield.");
+            ForceKill(snake);
+            return;
+        }
+
+        // 3. Self-collision — instant death
+        if (CompareTag("SnakeHead") && isSnakeSegment)
+        {
+            Debug.Log("Snake collided with itself!");
+            ForceKill(snake);
+        }
+    }
+
+    private void ForceKill(BaseSnake target)
+    {
+        target.GetComponent<SlamVFXController>()?.InterruptAndClearVFX();
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.deathSFX);
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.wallSplatSFX);
+
+        if (target is Darnell d)
+        {
+            // override shield/invuln and force death
+            d.hasShield = false;
+            d.isTemporarilyInvulnerable = false;
+            UIManager.Instance.ShowShieldIcon(false);
+            Debug.Log("Force-killing Darnell — bypassing shield/invuln.");
+            d.Die(); // Now runs base.Die()
+        }
+        else
+        {
+            target.Die();
         }
     }
 }

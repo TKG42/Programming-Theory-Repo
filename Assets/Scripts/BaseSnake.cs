@@ -154,6 +154,10 @@ public abstract class BaseSnake : MonoBehaviour
 
         Debug.Log("Snake has died!");
         ExplodeSnake();
+
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.deathSFX);
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.wallSplatSFX);
+
         moveSpeed = defaultMoveSpeed;
         StartCoroutine(HandleDeathDelay());
     }
