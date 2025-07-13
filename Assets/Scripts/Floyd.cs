@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class Floyd : BaseSnake
 {
+    // This class demontrates INHERITANCE.
+    // This snake is a unique variant that inherits from the abstract class BaseSnake.
+
     public GameObject lightGreenSegmentPrefab;
     public GameObject darkGreenSegmentPrefab;
 

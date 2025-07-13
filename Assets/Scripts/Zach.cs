@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class Zach : BaseSnake
 {
+    // This class demontrates INHERITANCE.
+    // This snake is a unique variant that inherits from the abstract class BaseSnake.
+
     public GameObject orangeSegmentPrefab;
     public GameObject darkOrangeSegmentPrefab;
 
@@ -47,6 +50,9 @@ public class Zach : BaseSnake
 
     protected override void IncreaseSpeed()
     {
+        // This method demonstrates POLYMORPHISM
+        // The base method is inherited from the abstact class, and unique attributes are overridden here.
+
         // Modify the base speed and then apply boost again if active
         baseSpeedWithoutBoost = Mathf.Min(baseSpeedWithoutBoost + speedIncreasePerFood, maxMoveSpeed);
         moveSpeed = baseSpeedWithoutBoost + (isSpeedBoosted ? speedBoostAmount : 0f);
@@ -86,6 +92,9 @@ public class Zach : BaseSnake
 
     public override void OnEatNormalFood()
     {
+        // This method demonstrates POLYMORPHISM
+        // The base method is inherited from the abstact class, and unique attributes are overridden here.
+
         if (inCombo)
         {
             ScoreManager.Instance.ActivateMultiplier(2, comboDuration);
@@ -102,6 +111,9 @@ public class Zach : BaseSnake
 
     public override void OnEatPowerFood()
     {
+        // This method demonstrates POLYMORPHISM
+        // The base method is inherited from the abstact class, and unique attributes are overridden here.
+
         if (!isSpeedBoosted)
         {
             // zapSFX

@@ -4,6 +4,9 @@ using System.Collections.Generic;
 
 public class Darnell : BaseSnake
 {
+    // This class demontrates INHERITANCE.
+    // This snake is a unique variant that inherits from the abstract class BaseSnake.
+
     public GameObject lightBlueSegmentPrefab;
     public GameObject blueSegmentPrefab;
     public GameObject tanSegmentPrefab;
@@ -62,6 +65,9 @@ public class Darnell : BaseSnake
 
     public override void OnEatPowerFood()
     {
+        // This method demonstrates POLYMORPHISM
+        // The base method is inherited from the abstact class, and unique attributes are overridden here.
+
         if (!hasShield)
         {
             AudioManager.Instance.PlaySFX(AudioManager.Instance.metalSFX);
@@ -77,6 +83,13 @@ public class Darnell : BaseSnake
 
     public override void AddSegment(int count = 1)
     {
+        // This method demonstrates POLYMORPHISM
+        // The base method is inherited from the abstact class, and unique attributes are overridden here.
+
+        // This method also demonstrates ABSTRACTION
+        // This high-level function defines the complex behavior for adding a new snake body segment.
+        // It is referenced in other functions, such as in OnEatNormalFood() below.
+
         for (int i = 0; i < count; i++)
         {
             Transform lastSegment = bodySegments[bodySegments.Count - 1];
@@ -147,6 +160,10 @@ public class Darnell : BaseSnake
 
     public void ConsumeShield()
     {
+        // This method demonstrates ABSTRACTION
+        // This high-level function defines the behavior for when a snake uses up its shield.
+        // It is referenced in other functions, such as in Die() above.
+
         hasShield = false;
         UIManager.Instance.ShowShieldIcon(false);
         Debug.Log("Darnell's shield was consumed!");

@@ -32,6 +32,8 @@ public class ScoreManager : MonoBehaviour
 
     public void AddPoints(int basePoints)
     {
+        // This method demonstrates ENCAPSULATION.
+        // This public method updates the private variable baseScore.
         int total = basePoints * (currentMultiplier + bonusMultiplier);
         baseScore += total;
         UpdateUI();
