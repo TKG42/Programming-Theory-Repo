@@ -6,6 +6,7 @@ public class TitleUIScreenManager : MonoBehaviour
     [SerializeField] private GameObject titleScreenCanvas;
     [SerializeField] private GameObject howToPlayCanvas;
     [SerializeField] private GameObject highScoreCanvas;
+    [SerializeField] private GameObject creditsCanvas;
 
     private void Start()
     {
@@ -17,6 +18,7 @@ public class TitleUIScreenManager : MonoBehaviour
         titleScreenCanvas.SetActive(true);
         howToPlayCanvas.SetActive(false);
         highScoreCanvas.SetActive(false);
+        creditsCanvas.SetActive(false);
     }
 
     public void ShowHowToPlay()
@@ -24,6 +26,7 @@ public class TitleUIScreenManager : MonoBehaviour
         titleScreenCanvas.SetActive(false);
         howToPlayCanvas.SetActive(true);
         highScoreCanvas.SetActive(false);
+        creditsCanvas.SetActive(false);
     }
 
     public void ShowHighScores()
@@ -31,5 +34,15 @@ public class TitleUIScreenManager : MonoBehaviour
         titleScreenCanvas.SetActive(false);
         howToPlayCanvas.SetActive(false);
         highScoreCanvas.SetActive(true);
+        creditsCanvas.SetActive(false);
+    }
+
+    public void ShowCreditsScreen()
+    {
+        titleScreenCanvas.SetActive(false);
+        howToPlayCanvas.SetActive(false);
+        highScoreCanvas.SetActive(false);
+        creditsCanvas.SetActive(true);
+
     }
 }
