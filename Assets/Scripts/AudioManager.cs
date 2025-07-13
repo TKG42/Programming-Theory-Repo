@@ -18,7 +18,6 @@ public class AudioManager : MonoBehaviour
     public AudioClip deathSFX;
     public AudioClip wallBreakSFX;
     public AudioClip wallSplatSFX;
-    public AudioClip hissSFX;
     public AudioClip electricSFX;
     public AudioClip zapSFX;
     public AudioClip metalSFX;

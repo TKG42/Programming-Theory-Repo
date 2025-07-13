@@ -378,14 +378,13 @@ MonoBehaviour:
   deathSFX: {fileID: 8300000, guid: 5cf05efe49c33294682bf7f7bfce2180, type: 3}
   wallBreakSFX: {fileID: 8300000, guid: 86c00e2df653258448d889e8213e8239, type: 3}
   wallSplatSFX: {fileID: 8300000, guid: 7195ce9628e2e4149b60a532dd8c19d2, type: 3}
-  hissSFX: {fileID: 0}
   electricSFX: {fileID: 8300000, guid: f7077c85e02a95f4cae653869eeb5288, type: 3}
   zapSFX: {fileID: 8300000, guid: 8698ceaff6200684ba7f37532ab339c3, type: 3}
   metalSFX: {fileID: 8300000, guid: 0a81b7a3053e7be4489c2aa9b529fba1, type: 3}
   metalSlamSFX: {fileID: 8300000, guid: 297de83609469d84a85a0b6c20100883, type: 3}
   clickSFX: {fileID: 8300000, guid: efcda2241f08b554a9015ff3d6a9106a, type: 3}
-  multiplierSFX_Level1: {fileID: 8300000, guid: 915c05b8bdb07ba4daa28722c10cb20c, type: 3}
-  multiplierSFX_Level2: {fileID: 8300000, guid: 549242fadcda17242a8e105c12f87f33, type: 3}
+  multiplierSFX_Level1: {fileID: 8300000, guid: 22f6fbb25ccff9f4cb9441632bef97c4, type: 3}
+  multiplierSFX_Level2: {fileID: 8300000, guid: 9b50b898b15c2b841bebd77d7426cb1d, type: 3}
   recordScratchSFX: {fileID: 8300000, guid: 6a1106e31c579514da9325c524e43691, type: 3}
 --- !u!4 &59209784
 Transform:
@@ -4718,12 +4717,12 @@ GameObject:
   - component: {fileID: 1226668829}
   - component: {fileID: 1226668828}
   m_Layer: 0
-  m_Name: DEVBUTTON(deletebeforeprod)
+  m_Name: DEVBUTTON
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1226668827
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5732,7 +5731,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 64}
+  m_AnchoredPosition: {x: 0, y: 426}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1578099792
@@ -5755,8 +5754,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "A game by Miles Robinson\n\nMusic by Tyler Cunningham \n\nSpecial thanks
-    to PurpleSugar\n\n"
+  m_text: "A game by Miles Robinson\n\n\nMusic by\n\nTyler Cunningham\nTim Kulig
+    \nmk.matheusklein\n\nSpecial thanks to PurpleSugar\nStrizange@gmail.com to collaborate\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
